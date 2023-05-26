@@ -3,12 +3,14 @@ import styled from "styled-components";
 export const SetColourWrapper = styled.ul`
   display: flex;
   padding: 1rem 0;
+  
   li {
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
   }
+  
   input {
     position: absolute;
   }
@@ -25,9 +27,11 @@ export const SetColourWrapper = styled.ul`
       transform: scale(0.95);
     }
   }
-  .greyedOut{
+  
+  .greyedOut {
     filter: grayscale(1);
   }
+  
   .colourIcon {
     display: flex;
     justify-content: center;
@@ -59,9 +63,9 @@ export const SetColourWrapper = styled.ul`
   .checkboxIcon-x {
     background-color: var(--colourless);
     box-shadow: 0px 0px 10px 2px var(--colourless);
-}
+  }
 
-/* 
+  /* 
   .checkboxIcon-* {
     display: flex;
     justify-content: center;
@@ -72,7 +76,6 @@ export const SetColourWrapper = styled.ul`
     background-color: var(--*);
     box-shadow: 0px 0px 10px 2px var(--*)
   } */
-
 `;
 
 export const ColoursListWrapper = styled.ul``;

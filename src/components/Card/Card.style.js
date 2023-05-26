@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const CardImageWrapper = styled.div`
   img {
-    max-height: 70vh;
   }
   .cardimage {
+    max-height: 65vh;
     border-radius: 4%;
     width: 100%;
   }
