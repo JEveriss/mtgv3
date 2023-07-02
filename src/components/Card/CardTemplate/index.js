@@ -3,23 +3,38 @@ import CardImage from "../CardImage";
 import CardTitle from "../CardTitle";
 import { SingleSidedCard, TemplateWrapper } from "../Card.style";
 import CardArtModal from "../CardArtModal/index";
+import { cardArtStatus, newCardButtonClicked } from "../../../mixpanel";
 
 function CardTemplate({ fetchData, cardData }) {
   const [show, setShow] = useState(false);
 
   return (
     <TemplateWrapper>
-      <button onClick={fetchData}>New Card</button>
+      <button
+        onClick={() => {
+          fetchData();
+          newCardButtonClicked(cardData);
+        }}
+      >
+        New Card
+      </button>
 
       <CardTitle title={cardData?.name} />
       <SingleSidedCard>
         <CardImage card={cardData} />
 
-        <div className="cardText">
-          <button onClick={() => setShow(true)}>Enlarge Art</button>
+        <div className='cardText'>
+          <button
+            onClick={() => {
+              setShow(true);
+              cardArtStatus("opened");
+            }}
+          >
+            Enlarge Art
+          </button>
 
           <p>{cardData?.type_line}</p>
-          <p>{cardData?.mana_cost}</p>
+          {cardData?.cmc < 0 ? null : <p>CMC: {cardData?.cmc}</p>}
           <p>{cardData?.set_name}</p>
           <p>{cardData?.artist}</p>
           <p>{cardData?.released_at}</p>
@@ -30,13 +45,13 @@ function CardTemplate({ fetchData, cardData }) {
             show={show}
           />
 
-          {cardData?.games && (
+          {/* {cardData?.games && (
             <ul>
               {cardData?.games.map((v, k) => {
                 return <li key={k}>{v}</li>;
               })}
             </ul>
-          )}
+          )} */}
         </div>
       </SingleSidedCard>
     </TemplateWrapper>

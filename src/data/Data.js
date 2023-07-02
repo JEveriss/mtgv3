@@ -3,7 +3,7 @@ import u from "../assets/2-Blue.svg";
 import b from "../assets/3-Black.svg";
 import r from "../assets/4-Red.svg";
 import g from "../assets/5-Green.svg";
-import x from "../assets/6-Colourless.svg";
+import c from "../assets/6-Colourless.svg";
 
 export const WUBRG = [
   {
@@ -44,9 +44,9 @@ export const WUBRG = [
   {
     id: 6,
     title: "Colourless",
-    category: "x",
+    category: "colorless",
     colour: "colourless-mana",
-    image: x,
+    image: c,
   },
 ];
 
@@ -59,4 +59,5 @@ export const setList = [
   { id: 6, abbr: "one", title: "Phyrexia, All Will Be One" },
   { id: 7, abbr: "mom", title: "Morch of the Machines" },
   { id: 8, abbr: "clb", title: "Baldur's Gate" },
+  { id: 9, abbr: "iko", title: "Ikoria, Land of Behemoths" },
 ];

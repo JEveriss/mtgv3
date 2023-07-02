@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const SetSelectorWrapper = styled.ul`
   display: flex;
+  justify-content: space-evenly;
+  margin-top: 2rem;
 
   input {
     margin-right: 0.2rem;
@@ -9,6 +11,10 @@ export const SetSelectorWrapper = styled.ul`
 
   li {
     display: flex;
-    margin-right: 2rem;
+    flex-direction: row;
   }
-`;
+  
+  p{
+    margin: 1rem 0;
+  }
+  `;

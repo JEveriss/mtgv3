@@ -4,8 +4,6 @@ import CardTemplate from "../components/Card/CardTemplate";
 import LoadingSpinner from "../components/Spinner";
 import SetSelector from "../components/SetSelector";
 import ColourSelector from "../components/ColourSelector";
-import Testing from "../components/Testing";
-// import Icon from "../components/Icon";
 import { WUBRG } from "../data/Data";
 
 function App() {
@@ -16,29 +14,16 @@ function App() {
     filters: new Set(),
   });
   
-  // const mainObj = colourState.filters;
   const mainArr = Array.from(colourState.filters);
-  const blah = mainArr.toString().replaceAll(",", "")
-  console.log(mainArr.toString().replaceAll(",", ""));
-
-  // function tempfunc(item) {
-  //   const va = item.map((i) => {
-  //     return `c%3A${i}`;
-  //   });
-  //   return va.toString().replaceAll(",", "+");
-  // }
-  // const blah = tempfunc(mainArr)
-  // console.log(blah);
-  
+  const customUrlSection = mainArr.toString().replaceAll(",", "");
+ console.log(customUrlSection)
   // ?q=id<%3Drg+-c%3Ac
-  const xyz = '+-c%3Ac'
-
-// {mainArr.includes('x') ? '+-c%3Ac' : null}
+  const connectorString = `c%3A${customUrlSection}`;
 
   const fetchData = async () => {
     try {
       const res = await fetch(
-        `https://api.scryfall.com/cards/random?q=id<%3D${blah}${xyz}+set%3A${setName}`
+        `https://api.scryfall.com/cards/random?q=${connectorString}+set%3A${setName}`
       );
       const res2 = await fetch(`https://api.scryfall.com/sets`);
       const fetchedData = await res.json();
@@ -56,20 +41,23 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
-      <Testing />
-
-      {/* <Icon /> */}
-
+    <div className='app'>
       <ColourSelector
         colourState={colourState}
         setColourState={setColourState}
       />
 
-      <SetSelector setName={setName} setSetName={setSetName} />
-
+      <SetSelector
+        setName={setName}
+        setSetName={setSetName}
+        cardContext={cardContext}
+      />
+{/* layout possibilities: 
+      transform
+      normal
+ */}
       {cardContext ? (
-        cardContext.card_faces ? (
+        cardContext.layout !== 'normal' ? (
           cardContext?.card_faces.map((cardFace) => {
             return <CardTemplate fetchData={fetchData} cardData={cardFace} />;
           })

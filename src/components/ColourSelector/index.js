@@ -1,6 +1,7 @@
 import { React, useCallback } from "react";
 import { WUBRG } from "../../data/Data";
 import { SetColourWrapper } from "../ColourSelector/ColourSelector.style";
+import { colourSelected } from "../../mixpanel";
 
 export default function ColourSelector({ colourState, setColourState }) {
   const handleFilterChange = useCallback(
@@ -44,7 +45,7 @@ export default function ColourSelector({ colourState, setColourState }) {
     <>
       <SetColourWrapper>
         {WUBRG.map(({ id, category, colour, image }) => (
-          <li key={id}>
+          <li key={id} onClick={() => colourSelected(colour)}>
             <label
               className={
                 stylingFunc(category)
