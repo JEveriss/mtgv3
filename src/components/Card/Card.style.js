@@ -11,7 +11,7 @@ export const CardImageWrapper = styled.div`
 `;
 
 export const CardTitleWrapper = styled.h1`
-  background-color: ${(props) => props.backgroundColor || "transparent"};
+  background: linear-gradient(133deg, var(--r), var(--g), var(--u));
   color: #000111;
 `;
 

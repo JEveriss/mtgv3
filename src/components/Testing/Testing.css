@@ -49,15 +49,14 @@
   border-radius: inherit;
   z-index: -1;
   filter: blur(1rem);
+  transition: opacity 0.5s ease-in-out;
+  opacity:0;
 }
 .card:hover::after {
   animation: roatation infinite linear 1s;
   opacity: 1;
-  transition: opacity 2s ease-in-out;
 }
-.card::after {
-  opacity:0;
-}
+
 
 img {
   border-radius: inherit;

@@ -15,21 +15,18 @@ function App() {
   });
   
   const mainArr = Array.from(colourState.filters);
-  const customUrlSection = mainArr.toString().replaceAll(",", "");
- console.log(customUrlSection)
+  const colourUrl = mainArr.toString().replaceAll(",", "");
+ console.log(mainArr)
   // ?q=id<%3Drg+-c%3Ac
-  const connectorString = `c%3A${customUrlSection}`;
+  const connectorString = `c%3A${colourUrl}`;
 
   const fetchData = async () => {
     try {
       const res = await fetch(
         `https://api.scryfall.com/cards/random?q=${connectorString}+set%3A${setName}`
       );
-      const res2 = await fetch(`https://api.scryfall.com/sets`);
       const fetchedData = await res.json();
-      const fetchedData2 = await res2.json();
       setCardContext(fetchedData);
-      console.log(fetchedData2);
     } catch (err) {
       console.log(err);
     }
@@ -62,7 +59,7 @@ function App() {
             return <CardTemplate fetchData={fetchData} cardData={cardFace} />;
           })
         ) : (
-          <CardTemplate fetchData={fetchData} cardData={cardContext} />
+          <CardTemplate fetchData={fetchData} cardData={cardContext} colourUrl={mainArr} />
         )
       ) : (
         <LoadingSpinner />

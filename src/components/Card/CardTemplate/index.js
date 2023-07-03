@@ -5,7 +5,7 @@ import { SingleSidedCard, TemplateWrapper } from "../Card.style";
 import CardArtModal from "../CardArtModal/index";
 import { cardArtStatus, newCardButtonClicked } from "../../../mixpanel";
 
-function CardTemplate({ fetchData, cardData }) {
+function CardTemplate({ fetchData, cardData, colourUrl }) {
   const [show, setShow] = useState(false);
 
   return (
@@ -19,7 +19,7 @@ function CardTemplate({ fetchData, cardData }) {
         New Card
       </button>
 
-      <CardTitle title={cardData?.name} />
+      <CardTitle title={cardData?.name} backgroundColor={cardData.color_identity} colourUrl={colourUrl} />
       <SingleSidedCard>
         <CardImage card={cardData} />
 

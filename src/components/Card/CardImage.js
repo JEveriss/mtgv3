@@ -6,7 +6,6 @@ function CardImage({ card }) {
   return (
     <CardImageWrapper>
     <div className="card">
-      
       <img
         className="cardimage"
         alt={card?.name}

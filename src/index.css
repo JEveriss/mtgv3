@@ -70,9 +70,15 @@ code {
 
 :root {
   --white: #fffbd5;
+  --w: #ffffff;
   --blue: #aae0fa;
+  --u: #22b5ff;
   --black: #cbc2bf;
+  --b: #1a1a1a;
   --red: #f9aa8f;
+  --r: #c20d00;
   --green: #9bd3ae;
+  --g: #007b29;
   --colourless: #ccc2c0;
+  --x: #8a8a8a;
 }
