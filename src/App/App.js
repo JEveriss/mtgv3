@@ -5,6 +5,7 @@ import LoadingSpinner from "../components/Spinner";
 import SetSelector from "../components/SetSelector";
 import ColourSelector from "../components/ColourSelector";
 import { WUBRG } from "../data/Data";
+import logo from "../assets/MTGLogo 1.png";
 
 function App() {
   const [setName, setSetName] = useState("neo");
@@ -13,11 +14,10 @@ function App() {
     colours: WUBRG,
     filters: new Set(),
   });
-  
+
   const mainArr = Array.from(colourState.filters);
   const colourUrl = mainArr.toString().replaceAll(",", "");
- console.log(mainArr)
-  // ?q=id<%3Drg+-c%3Ac
+
   const connectorString = `c%3A${colourUrl}`;
 
   const fetchData = async () => {
@@ -39,6 +39,7 @@ function App() {
 
   return (
     <div className='app'>
+      <img src={logo} alt='logo'  width="400"/>
       <ColourSelector
         colourState={colourState}
         setColourState={setColourState}
@@ -49,21 +50,28 @@ function App() {
         setSetName={setSetName}
         cardContext={cardContext}
       />
-{/* layout possibilities: 
+      {/* layout possibilities: 
       transform
       normal
  */}
       {cardContext ? (
-        cardContext.layout !== 'normal' ? (
+        <CardTemplate
+          fetchData={fetchData}
+          cardData={cardContext}
+          colourUrl={mainArr}
+        />
+      ) : (
+        <LoadingSpinner />
+      )}
+      {/* {cardContext ? (
+        cardContext.layout === 'transform' ? (
           cardContext?.card_faces.map((cardFace) => {
             return <CardTemplate fetchData={fetchData} cardData={cardFace} />;
           })
         ) : (
-          <CardTemplate fetchData={fetchData} cardData={cardContext} colourUrl={mainArr} />
         )
       ) : (
-        <LoadingSpinner />
-      )}
+      )} */}
     </div>
   );
 }

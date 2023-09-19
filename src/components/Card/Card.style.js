@@ -11,13 +11,16 @@ export const CardImageWrapper = styled.div`
 `;
 
 export const CardTitleWrapper = styled.h1`
-  background: linear-gradient(133deg, var(--r), var(--g), var(--u));
   color: #000111;
 `;
 
 export const TemplateWrapper = styled.div`
+  .templateTop {
+    display: flex;
+  }
   .cardText {
     margin-left: 2rem;
+    width: 50%;
   }
 `;
 

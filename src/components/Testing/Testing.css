@@ -17,8 +17,7 @@
   place-content: center;
 }
 .card {
-  height: 60vh;
-  aspect-ratio: 1 / 1.4;
+  max-width: 30rem;
   background: var(--col-1);
   border-radius: 1rem;
   position: relative;
@@ -50,35 +49,41 @@
   z-index: -1;
   filter: blur(1rem);
   transition: opacity 0.5s ease-in-out;
-  opacity:0;
+  opacity: 0;
 }
 .card:hover::after {
   animation: roatation infinite linear 1s;
   opacity: 1;
 }
 
-
 img {
   border-radius: inherit;
   height: inherit;
 }
-card{
-animation:signup-response 0.5s 1;
--webkit-animation:signup-response 0.5s 1;
-animation-fill-mode: forwards;
+card {
+  animation: signup-response 0.5s 1;
+  -webkit-animation: signup-response 0.5s 1;
+  animation-fill-mode: forwards;
 
-animation-delay:2s;
--webkit-animation-delay:1s; /* Safari and Chrome */
--webkit-animation-fill-mode: forwards;
-
-} 
-
-@keyframes signup-response{
-from {opacity :1;}
-to {opacity :0;}
+  animation-delay: 2s;
+  -webkit-animation-delay: 1s; /* Safari and Chrome */
+  -webkit-animation-fill-mode: forwards;
 }
 
-@-webkit-keyframes signup-response{
-from {opacity :1;}
-to {opacity :0;}
+@keyframes signup-response {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes signup-response {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

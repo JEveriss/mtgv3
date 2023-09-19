@@ -6,7 +6,7 @@ function CardTitle({ title, backgroundColor, colourState, colourUrl }) {
   // const mainObj = colourState.filters;
   // const mainArr = Array.from(mainObj);
 
-  console.log('TITLE', colourUrl)
+  // console.log('TITLE', colourUrl)
 
   return (
     <CardTitleWrapper backgroundColor={backgroundColor}>{title}</CardTitleWrapper>

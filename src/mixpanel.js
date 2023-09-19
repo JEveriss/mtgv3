@@ -11,7 +11,7 @@ export function newCardButtonClicked(cardData) {
     "Card Name": cardData.name,
     "Card Type": cardData.type_line,
     "Card Artist": cardData.artist,
-    "Card Colour": cardData.colors.toString(),
+    "Card Colour": cardData.colors,
     "Link to Card": cardData.scryfall_uri
   });
 }

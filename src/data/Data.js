@@ -51,13 +51,13 @@ export const WUBRG = [
 ];
 
 export const setList = [
-  { id: 1, abbr: "sld", title: "Secret Lair" },
-  { id: 2, abbr: "mid", title: "Innistrad, Mignight Hunt" },
-  { id: 3, abbr: "neo", title: "Kamigawa, Neon Dynasty" },
-  { id: 4, abbr: "dmu", title: "Dominaria United" },
-  { id: 5, abbr: "bro", title: "Bothers War" },
-  { id: 6, abbr: "one", title: "Phyrexia, All Will Be One" },
-  { id: 7, abbr: "mom", title: "Morch of the Machines" },
-  { id: 8, abbr: "clb", title: "Baldur's Gate" },
-  { id: 9, abbr: "iko", title: "Ikoria, Land of Behemoths" },
+  { id: 1, abbr: "sld" },
+  { id: 2, abbr: "mid" },
+  { id: 3, abbr: "neo" },
+  { id: 4, abbr: "dmu" },
+  { id: 5, abbr: "bro" },
+  { id: 6, abbr: "one" },
+  { id: 7, abbr: "mom" },
+  { id: 8, abbr: "clb" },
+  { id: 9, abbr: "iko" },
 ];
