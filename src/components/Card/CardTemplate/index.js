@@ -1,21 +1,17 @@
 import React, { useState } from "react";
-import CardImage from "../CardImage";
 import CardTitle from "../CardTitle";
 import { TemplateWrapper } from "../Card.style";
 import CardArtModal from "../CardArtModal/index";
 import { cardArtStatus, newCardButtonClicked } from "../../../mixpanel";
 import CardLegalities from "../CardLegalities";
+import CardDetails from "../CardDetails";
 
-function CardTemplate({ fetchData, cardData, colourUrl }) {
+function CardTemplate({ fetchData, cardData, colourUrl, imageSrc }) {
   const [show, setShow] = useState(false);
-
-  // const newDate = new Date(cardData?.released_at).toDateString();
-  const currentDate = new Date();
-  const date = currentDate.getDate();
-  const month = currentDate.getMonth();
-  const year = currentDate.getFullYear();
-
-  let newDate = month + 1 + "/" + date + "/" + year;
+  
+  let item;
+  cardData.card_faces ? (item = cardData) : (item = cardData.card_faces);
+  console.log("ITEM: ", item);
 
   return (
     <TemplateWrapper>
@@ -28,13 +24,62 @@ function CardTemplate({ fetchData, cardData, colourUrl }) {
         New Card
       </button>
 
-      <CardTitle
-        title={cardData?.name}
-        backgroundColor={cardData.color_identity}
-        colourUrl={colourUrl}
-      />
       <div className="templateTop">
-        <CardImage card={cardData} />
+        <div>
+          {cardData.card_faces ? (
+            <>
+              {cardData.card_faces.map((face) => {
+                return (
+                  <>
+                    <CardTitle
+                      title={face?.name}
+                      backgroundColor={cardData?.color_identity}
+                      colourUrl={colourUrl}
+                    />
+                    <img
+                      className="cardimage"
+                      alt={face?.name}
+                      src={face?.image_uris?.normal}
+                    />
+                    <CardDetails cardData={cardData} />
+                    <button
+                      onClick={() => {
+                        setShow(true);
+                        cardArtStatus("opened");
+                      }}
+                    >
+                      Enlarge Art
+                    </button>
+                    <CardArtModal
+                      modalCard={cardData}
+                      onClose={() => setShow(false)}
+                      show={show}
+                    />
+                  </>
+                );
+              })}
+            </>
+          ) : (
+            <div className="card">
+              <CardTitle
+                title={cardData?.name}
+                backgroundColor={cardData?.color_identity}
+                colourUrl={colourUrl}
+              />
+              <img
+                className="cardimage"
+                alt={cardData?.name}
+                src={cardData?.image_uris?.normal}
+              />
+              <CardDetails cardData={cardData} />
+              <CardArtModal
+                modalCard={cardData}
+                onClose={() => setShow(false)}
+                show={show}
+              />
+            </div>
+          )}
+        </div>
 
         <div className="cardText">
           <button
@@ -45,45 +90,10 @@ function CardTemplate({ fetchData, cardData, colourUrl }) {
           >
             Enlarge Art
           </button>
-          {cardData?.type_line.includes("Creature") ? (
-            <p>
-              {" "}
-              {cardData?.type_line.includes("Creature")
-                ? cardData.type_line.split("—")[0]
-                : cardData?.type_line}
-            </p>
-          ) : null}
 
-          <p>
-            Type:{" "}
-            {cardData?.type_line.includes("Creature")
-              ? cardData.type_line.split("—")[1]
-              : cardData?.type_line}
-          </p>
-
-          {cardData?.cmc < 0 ? null : (
-            <p title="Converted Mana Cost">CMC: {cardData?.cmc}</p>
-          )}
-          <p>Set: {cardData?.set_name}</p>
-          <p>Artist: {cardData?.artist}</p>
-          <p>Released: {newDate}</p>
-          <a href={cardData?.scryfall_uri}>View on Scryfall</a>
           <hr />
           <CardLegalities cardLegalities={cardData.legalities} />
         </div>
-
-        <CardArtModal
-          modalCard={cardData}
-          onClose={() => setShow(false)}
-          show={show}
-        />
-        {/* {cardData?.games && (
-            <ul>
-              {cardData?.games.map((v, k) => {
-                return <li key={k}>{v}</li>;
-              })}
-            </ul>
-          )} */}
       </div>
     </TemplateWrapper>
   );

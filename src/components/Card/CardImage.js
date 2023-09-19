@@ -1,17 +1,33 @@
 import React from "react";
 import { CardImageWrapper } from "./Card.style";
-import "../Testing/Testing.css"
+import "../Testing/Testing.css";
 
-function CardImage({ card }) {
+function CardImage({ cardData }) {
+  console.log(cardData);
   return (
     <CardImageWrapper>
-    <div className="card">
-      <img
-        className="cardimage"
-        alt={card?.name}
-        src={card?.image_uris?.normal}
-      />
-    </div>
+      {cardData.card_faces ? (
+        <>
+          {cardData.card_faces.map((face, i) => {
+            return (
+              <img
+                key={i}
+                className="cardimage"
+                alt={face?.name}
+                src={face?.image_uris?.normal}
+              />
+            );
+          })}
+        </>
+      ) : (
+        <div className="card">
+          <img
+            className="cardimage"
+            alt={cardData?.name}
+            src={cardData?.image_uris?.normal}
+          />
+        </div>
+      )}
     </CardImageWrapper>
   );
 }

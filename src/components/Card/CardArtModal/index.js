@@ -17,9 +17,9 @@ const CardArtModal = (props) => {
         }
         onClick={(e) => e.stopPropagation()}
       >
-        <span className='modalheader'>
+        <span className="modalheader">
           <div>
-            <h1 className='modaltitle'>{props.modalCard?.name}</h1>
+            <h1 className="modaltitle">{props.modalCard?.name}</h1>
             <p>{props.modalCard?.artist}</p>
           </div>
           <button
@@ -31,10 +31,17 @@ const CardArtModal = (props) => {
             Close it up
           </button>
         </span>
-        <img
-          src={props?.modalCard.image_uris.art_crop}
-          alt={props.modalCard?.name}
-        />
+        {props?.modalCard.card_faces ? (
+          <img
+            src={props?.modalCard?.card_faces[0]?.image_uris?.art_crop}
+            alt={props?.modalCard?.name}
+          />
+        ) : (
+          <img
+            src={props?.modalCard?.image_uris?.art_crop}
+            alt={props?.modalCard?.name}
+          />
+        )}
       </div>
     </Modal>
   );

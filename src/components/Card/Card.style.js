@@ -7,6 +7,7 @@ export const CardImageWrapper = styled.div`
     max-height: 65vh;
     border-radius: 4%;
     width: 100%;
+    margin-bottom: 2rem;
   }
 `;
 
