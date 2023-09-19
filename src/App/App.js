@@ -63,15 +63,6 @@ function App() {
       ) : (
         <LoadingSpinner />
       )}
-      {/* {cardContext ? (
-        cardContext.layout === 'transform' ? (
-          cardContext?.card_faces.map((cardFace) => {
-            return <CardTemplate fetchData={fetchData} cardData={cardFace} />;
-          })
-        ) : (
-        )
-      ) : (
-      )} */}
     </div>
   );
 }
