@@ -50,10 +50,7 @@ function App() {
         setSetName={setSetName}
         cardContext={cardContext}
       />
-      {/* layout possibilities: 
-      transform
-      normal
- */}
+
       {cardContext ? (
         <CardTemplate
           fetchData={fetchData}

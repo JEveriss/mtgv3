@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const CardImageWrapper = styled.div`
   img {
+    display: flex;
+    flex-direction: column;
   }
   .cardimage {
     max-height: 65vh;
@@ -20,6 +22,7 @@ export const TemplateWrapper = styled.div`
   }
   .cardText {
     margin-left: 2rem;
+    padding-top: 10rem;
     width: 50%;
   }
 `;

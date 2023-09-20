@@ -1,0 +1,19 @@
+          {cardData?.type_line.includes("Creature") ? (
+            <p>
+              {" "}
+              {cardData?.type_line.includes("Creature")
+                ? cardData.type_line.split("—")[0]
+                : cardData?.type_line}
+            </p>
+          ) : null}
+
+          <p>
+            Type:{" "}
+            {cardData?.type_line.includes("Creature")
+              ? cardData.type_line.split("—")[1]
+              : cardData?.type_line}
+          </p>
+
+          {cardData?.cmc <= 0 ? null : (
+            <p title="Converted Mana Cost">CMC: {cardData?.cmc}</p>
+          )}
