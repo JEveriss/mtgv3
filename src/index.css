@@ -9,10 +9,10 @@
   padding: 0;
 }
 
-html,
+/* html,
 body {
   height: 100%;
-}
+} */
 
 body {
   line-height: 1.5;
@@ -79,6 +79,6 @@ code {
   --r: #c20d00;
   --green: #9bd3ae;
   --g: #007b29;
-  --colourless: #ccc2c0;
+  --colorless: #ccc2c0;
   --x: #8a8a8a;
 }

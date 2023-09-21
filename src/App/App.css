@@ -1,5 +1,6 @@
 .app {
-  margin: 1rem auto;
+  margin: 4rem auto;
   place-content: center;
-  max-width: 50rem;
+  max-width: 60rem;
 }
+

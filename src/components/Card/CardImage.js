@@ -1,6 +1,6 @@
 import React from "react";
 import { CardImageWrapper } from "./Card.style";
-import "../Testing/Testing.css"
+// import "../Testing/Testing.css"
 
 function CardImage({ card }) {
   return (

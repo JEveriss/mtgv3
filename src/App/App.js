@@ -5,7 +5,7 @@ import LoadingSpinner from "../components/Spinner";
 import SetSelector from "../components/SetSelector";
 import ColourSelector from "../components/ColourSelector";
 import { WUBRG } from "../data/Data";
-import logo from "../assets/MTGLogo 1.png";
+import logo from "../assets/MTGLogo1.png";
 
 function App() {
   const [setName, setSetName] = useState("neo");
@@ -37,6 +37,8 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+console.log(window)
+
   return (
     <div className='app'>
       <img src={logo} alt='logo'  width="400"/>
@@ -50,10 +52,7 @@ function App() {
         setSetName={setSetName}
         cardContext={cardContext}
       />
-      {/* layout possibilities: 
-      transform
-      normal
- */}
+
       {cardContext ? (
         <CardTemplate
           fetchData={fetchData}
@@ -63,15 +62,6 @@ function App() {
       ) : (
         <LoadingSpinner />
       )}
-      {/* {cardContext ? (
-        cardContext.layout === 'transform' ? (
-          cardContext?.card_faces.map((cardFace) => {
-            return <CardTemplate fetchData={fetchData} cardData={cardFace} />;
-          })
-        ) : (
-        )
-      ) : (
-      )} */}
     </div>
   );
 }

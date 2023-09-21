@@ -2,11 +2,12 @@ import React from "react";
 import { Modal } from "./CardArtModal.style";
 import { cardArtStatus } from "../../../mixpanel";
 
-const CardArtModal = (props) => {
+function CardArtModal(props) {
+  // const {modalCard} = props
   if (!props.show) {
     return null;
   }
-
+console.log("PROPS: ", props?.modalCard)
   return (
     <Modal onClick={props.onClose}>
       <div
@@ -17,9 +18,9 @@ const CardArtModal = (props) => {
         }
         onClick={(e) => e.stopPropagation()}
       >
-        <span className='modalheader'>
+        <span className="modalheader">
           <div>
-            <h1 className='modaltitle'>{props.modalCard?.name}</h1>
+            <h1 className="modaltitle">{props.modalCard?.name}</h1>
             <p>{props.modalCard?.artist}</p>
           </div>
           <button
@@ -31,13 +32,15 @@ const CardArtModal = (props) => {
             Close it up
           </button>
         </span>
+
         <img
           src={props?.modalCard.image_uris.art_crop}
           alt={props.modalCard?.name}
         />
+        
       </div>
     </Modal>
   );
-};
+}
 
 export default CardArtModal;

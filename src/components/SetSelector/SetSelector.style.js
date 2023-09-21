@@ -3,7 +3,11 @@ import styled from "styled-components";
 export const SetSelectorWrapper = styled.ul`
   display: flex;
   justify-content: space-evenly;
-  margin-top: 2rem;
+  margin-bottom: 1rem;
+  
+  label {
+    text-transform: uppercase;
+  }
 
   input {
     margin-right: 0.2rem;
@@ -13,8 +17,8 @@ export const SetSelectorWrapper = styled.ul`
     display: flex;
     flex-direction: row;
   }
-  
-  p{
+
+  p {
     margin: 1rem 0;
   }
-  `;
+`;

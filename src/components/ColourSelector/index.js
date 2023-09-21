@@ -35,12 +35,11 @@ export default function ColourSelector({ colourState, setColourState }) {
   const mainObj = colourState.filters;
   const mainArr = Array.from(mainObj);
 
-  const stylingFunc = function (j) {
+  function stylingFunc(j) {
     if (mainArr.includes(j)) {
       return true;
     }
   };
-
   return (
     <>
       <SetColourWrapper>
@@ -63,14 +62,6 @@ export default function ColourSelector({ colourState, setColourState }) {
           </li>
         ))}
       </SetColourWrapper>
-
-      {/* <ColoursListWrapper>
-        {colourState?.colours.map((colour) => (
-          <li key={colour.id}>
-            <h2>{colour.colour}</h2>
-          </li>
-        ))}
-      </ColoursListWrapper> */}
     </>
   );
 }

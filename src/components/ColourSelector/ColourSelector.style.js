@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const SetColourWrapper = styled.ul`
   display: flex;
-  padding: 1rem 0;
+  padding: 3rem 0;
   
   li {
     margin: 0 auto;
@@ -60,9 +60,9 @@ export const SetColourWrapper = styled.ul`
     background-color: var(--green);
     box-shadow: 0px 0px 10px 2px var(--green);
   }
-  .checkboxIcon-x {
-    background-color: var(--colourless);
-    box-shadow: 0px 0px 10px 2px var(--colourless);
+  .checkboxIcon-colorless {
+    background-color: var(--colorless);
+    box-shadow: 0px 0px 10px 2px var(--colorless);
   }
 
   /* 

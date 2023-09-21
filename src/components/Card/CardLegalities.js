@@ -1,12 +1,9 @@
 import React from "react";
+import { FormatLegalities } from "./Card.style";
+import chevron from "../../assets/Chevron.svg";
 
 function CardLegalities({ cardLegalities }) {
-  //   const legalKey = Object.keys(cardLegalities);
-  //   const legalVal = Object.values(cardLegalities);
-  //   console.log("Key: ", legalKey, "Val: ", legalVal);
-
   const legalObject = Object.entries(cardLegalities);
-  //   const legalKeys = Object.keys(cardLegalities);
   const legalVals = Object.values(cardLegalities);
 
   legalVals.map((item) => {
@@ -23,14 +20,14 @@ function CardLegalities({ cardLegalities }) {
     } else legalArr.push(item);
     return legalArr;
   });
-  console.log("Legal: ", legalArr);
-  console.log("Not Legal: ", nonLegalArr);
 
   return (
-    <>
-      Format Legalities
+    <FormatLegalities>
+      Format Legalities:
       <details>
-        <summary>Legal</summary>
+        <summary>
+          Legal <img alt="chevron" src={chevron}></img>
+        </summary>
         <ul>
           {legalArr.map((item, i) => {
             return (
@@ -43,7 +40,9 @@ function CardLegalities({ cardLegalities }) {
         </ul>
       </details>
       <details>
-        <summary>Not-Legal</summary>
+        <summary>
+          Not-Legal <img alt="chevron" src={chevron}></img>
+        </summary>
         <ul>
           {nonLegalArr.map((item, i) => {
             return (
@@ -55,7 +54,7 @@ function CardLegalities({ cardLegalities }) {
           })}
         </ul>
       </details>
-    </>
+    </FormatLegalities>
   );
 }
 
