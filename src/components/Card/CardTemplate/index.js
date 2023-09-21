@@ -34,21 +34,15 @@ function CardTemplate({ fetchData, cardData, colourUrl }) {
       </button>
 
       <div className="templateTop">
-      <NewCard cardData={cardData}/>
-
-
-
+        <NewCard cardData={cardData} />
 
         <div className="cardText">
           <p>Set: {cardData?.set_name}</p>
-
           <p>Released: {newDate}</p>
           <a href={cardData?.scryfall_uri}>View on Scryfall</a>
           <hr />
           <CardLegalities cardLegalities={cardData.legalities} />
         </div>
-
-
       </div>
     </TemplateWrapper>
   );
