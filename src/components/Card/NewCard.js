@@ -3,19 +3,30 @@ import CardImage from "./CardImage";
 import CardArtModal from "./CardArtModal";
 import { useState } from "react";
 
+import CardLegalities from "./CardLegalities";
+import { NewCardWrapper } from "./Card.style";
+
 function NewCard({ cardData }) {
+  const currentDate = new Date(cardData?.released_at);
+  const date = currentDate.getDate();
+  const month = currentDate.getMonth();
+  const year = currentDate.getFullYear();
+
+  let newDate = month + 1 + "/" + date + "/" + year;
   const [show, setShow] = useState(false);
+
   return (
-    <div>
+    <NewCardWrapper>
       {cardData?.card_faces ? (
         cardData?.card_faces.map((item) => {
           return (
             <>
-            <div style={{width: '200%'}}>
+              <div className="cardTitle">
                 <h1>{item.name}</h1>
-                <h2>{item.artist}</h2>
+                <h2>art by {item.artist}</h2>
                 <h3>{item.type_line}</h3>
                 <button
+                  className="mainButton"
                   onClick={() => {
                     setShow(true);
                   }}
@@ -23,7 +34,19 @@ function NewCard({ cardData }) {
                   Enlarge Art
                 </button>
               </div>
-              <CardImage card={item} />
+              <div className="cardBox">
+                <div className="cardDetails">
+                  <p>Set: {cardData?.set_name}</p>
+                  <p>Released: {newDate}</p>
+                  <a href={cardData?.scryfall_uri}>View on Scryfall</a>
+                  <hr />
+                  <CardLegalities cardLegalities={cardData.legalities} />
+                </div>
+                <div className="cardImage">
+                  <CardImage card={item} />
+                </div>
+              </div>
+
               <CardArtModal
                 modalCard={item}
                 onClose={() => setShow(false)}
@@ -34,11 +57,12 @@ function NewCard({ cardData }) {
         })
       ) : (
         <>
-          <div style={{width: '200%'}}>
+          <div className="cardTitle">
             <h1>{cardData.name}</h1>
-            <h2>{cardData.artist}</h2>
+            <h2>art by {cardData.artist}</h2>
             <h3>{cardData.type_line}</h3>
             <button
+              className="mainButton"
               onClick={() => {
                 setShow(true);
               }}
@@ -46,7 +70,19 @@ function NewCard({ cardData }) {
               Enlarge Art
             </button>
           </div>
-          <CardImage card={cardData} />
+          <div className="cardBox">
+            <div className="cardDetails">
+              <p>Set: {cardData?.set_name}</p>
+              <p>Released: {newDate}</p>
+              <a href={cardData?.scryfall_uri}>View on Scryfall</a>
+              <hr />
+              <CardLegalities cardLegalities={cardData.legalities} />
+            </div>
+            <div className="cardImage">
+              <CardImage card={cardData} />
+            </div>
+          </div>
+
           <CardArtModal
             modalCard={cardData}
             onClose={() => setShow(false)}
@@ -54,7 +90,7 @@ function NewCard({ cardData }) {
           />
         </>
       )}
-    </div>
+    </NewCardWrapper>
   );
 }
 

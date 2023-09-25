@@ -8,7 +8,7 @@ import { WUBRG } from "../data/Data";
 import logo from "../assets/MTGLogo1.png";
 
 function App() {
-  const [setName, setSetName] = useState("neo");
+  const [setName, setSetName] = useState("sld");
   const [cardContext, setCardContext] = useState();
   const [colourState, setColourState] = useState({
     colours: WUBRG,
@@ -37,11 +37,11 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-console.log(window)
+  console.log(window);
 
   return (
-    <div className='app'>
-      <img src={logo} alt='logo'  width="400"/>
+    <div className="app">
+      <img src={logo} alt="logo" width="400" />
       <ColourSelector
         colourState={colourState}
         setColourState={setColourState}
@@ -52,6 +52,14 @@ console.log(window)
         setSetName={setSetName}
         cardContext={cardContext}
       />
+
+      <button className="mainButton"
+        onClick={() => {
+          fetchData();
+        }}
+      >
+        New Card
+      </button>
 
       {cardContext ? (
         <CardTemplate

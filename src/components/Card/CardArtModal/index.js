@@ -24,6 +24,7 @@ console.log("PROPS: ", props?.modalCard)
             <p>{props.modalCard?.artist}</p>
           </div>
           <button
+                        className="mainButton"
             onClick={() => {
               props.onClose();
               cardArtStatus("closed");

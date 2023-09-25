@@ -10,11 +10,12 @@ export const Modal = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0.5rem;
 
-  button {
+  /* button {
     border-radius: 0%;
     border: 1px black solid;
-  }
+  } */
 
   img {
     width: 100%;
