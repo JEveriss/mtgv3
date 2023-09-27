@@ -7,7 +7,7 @@ function CardArtModal(props) {
   if (!props.show) {
     return null;
   }
-console.log("PROPS: ", props?.modalCard)
+  console.log("PROPS: ", props?.modalCard);
   return (
     <Modal onClick={props.onClose}>
       <div
@@ -24,13 +24,13 @@ console.log("PROPS: ", props?.modalCard)
             <p>{props.modalCard?.artist}</p>
           </div>
           <button
-                        className="mainButton"
+            className="mainButton"
             onClick={() => {
               props.onClose();
               cardArtStatus("closed");
             }}
           >
-            Close it up
+            Close
           </button>
         </span>
 
@@ -38,7 +38,6 @@ console.log("PROPS: ", props?.modalCard)
           src={props?.modalCard.image_uris.art_crop}
           alt={props.modalCard?.name}
         />
-        
       </div>
     </Modal>
   );

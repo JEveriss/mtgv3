@@ -34,6 +34,7 @@ export const TemplateWrapper = styled.div`
 
 export const NewCardWrapper = styled.div`
   .cardBox {
+    gap:1rem;
     display: flex;
     flex-direction: row-reverse;
     > div {

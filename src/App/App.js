@@ -42,16 +42,16 @@ function App() {
   return (
     <div className="app">
       <img src={logo} alt="logo" width="400" />
-      <ColourSelector
-        colourState={colourState}
-        setColourState={setColourState}
-      />
-
       <SetSelector
         setName={setName}
         setSetName={setSetName}
         cardContext={cardContext}
       />
+      <ColourSelector
+        colourState={colourState}
+        setColourState={setColourState}
+      />
+
 
       <button className="mainButton"
         onClick={() => {

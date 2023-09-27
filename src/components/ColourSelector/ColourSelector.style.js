@@ -18,6 +18,7 @@ export const SetColourWrapper = styled.ul`
   label {
     display: contents;
     position: absolute;
+    cursor: pointer;
   }
 
   img {
