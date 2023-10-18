@@ -11,9 +11,9 @@ function NewCard({ cardData }) {
   const date = currentDate.getDate();
   const month = currentDate.getMonth();
   const year = currentDate.getFullYear();
-
   let newDate = month + 1 + "/" + date + "/" + year;
-  const [show, setShow] = useState(false);
+  
+  const [activeImage, setActiveImage] = useState(null);
 
   return (
     <NewCardWrapper>
@@ -28,7 +28,7 @@ function NewCard({ cardData }) {
                 <button
                   className="mainButton"
                   onClick={() => {
-                    setShow(true);
+                    setActiveImage(item.image_uris.art_crop);
                   }}
                 >
                   Enlarge Art
@@ -49,8 +49,8 @@ function NewCard({ cardData }) {
 
               <CardArtModal
                 modalCard={item}
-                onClose={() => setShow(false)}
-                show={show}
+                onClose={() => setActiveImage(null)}
+                activeImage={activeImage}
               />
             </>
           );
@@ -64,7 +64,7 @@ function NewCard({ cardData }) {
             <button
               className="mainButton"
               onClick={() => {
-                setShow(true);
+                setActiveImage(cardData.image_uris.art_crop);
               }}
             >
               Enlarge Art
@@ -85,8 +85,8 @@ function NewCard({ cardData }) {
 
           <CardArtModal
             modalCard={cardData}
-            onClose={() => setShow(false)}
-            show={show}
+            onClose={() => setActiveImage(null)}
+            activeImage={activeImage}
           />
         </>
       )}

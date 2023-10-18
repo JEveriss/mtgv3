@@ -4,7 +4,7 @@ import { cardArtStatus } from "../../../mixpanel";
 
 function CardArtModal(props) {
   // const {modalCard} = props
-  if (!props.show) {
+  if (!props.activeImage || props?.modalCard.image_uris.art_crop !== props.activeImage) {
     return null;
   }
   console.log("PROPS: ", props?.modalCard);

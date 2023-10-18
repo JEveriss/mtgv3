@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import CardTemplate from "../components/Card/CardTemplate";
 import LoadingSpinner from "../components/Spinner";
 import SetSelector from "../components/SetSelector";
 import ColourSelector from "../components/ColourSelector";
 import { WUBRG } from "../data/Data";
 import logo from "../assets/MTGLogo1.png";
+import NewCard from "../components/Card/NewCard";
 
 function App() {
   const [setName, setSetName] = useState("sld");
@@ -52,8 +52,8 @@ function App() {
         setColourState={setColourState}
       />
 
-
-      <button className="mainButton"
+      <button
+        className="mainButton"
         onClick={() => {
           fetchData();
         }}
@@ -61,15 +61,7 @@ function App() {
         New Card
       </button>
 
-      {cardContext ? (
-        <CardTemplate
-          fetchData={fetchData}
-          cardData={cardContext}
-          colourUrl={mainArr}
-        />
-      ) : (
-        <LoadingSpinner />
-      )}
+      {cardContext ? <NewCard cardData={cardContext} /> : <LoadingSpinner />}
     </div>
   );
 }

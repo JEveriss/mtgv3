@@ -27,11 +27,6 @@ export const CardTitleWrapper = styled.h1`
   color: #000111;
 `;
 
-export const TemplateWrapper = styled.div`
-  /* width: 100%;
-  margin: 0 auto; */
-`;
-
 export const NewCardWrapper = styled.div`
   .cardBox {
     gap:1rem;
