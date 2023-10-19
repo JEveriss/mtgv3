@@ -4,15 +4,10 @@ import { CardImageWrapper } from "./Card.style";
 
 function CardImage({ card }) {
   return (
-    <CardImageWrapper>
-    <div className="card">
-      <img
-        className="cardimage"
-        alt={card?.name}
-        src={card?.image_uris?.normal}
-      />
-    </div>
-    </CardImageWrapper>
+    <CardImageWrapper
+      alt={card?.name}
+      src={card?.image_uris?.normal}
+    ></CardImageWrapper>
   );
 }
 
