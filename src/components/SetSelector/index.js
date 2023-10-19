@@ -7,7 +7,7 @@ function SetSelector({ setName, setSetName, cardContext }) {
 
   return (
     <>
-      <p>
+      <p className="currentSet">
         Current set is: <b>{cardContext?.set_name}</b>
       </p>
       <SetSelectorWrapper>

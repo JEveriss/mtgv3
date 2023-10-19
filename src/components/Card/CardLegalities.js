@@ -32,8 +32,7 @@ function CardLegalities({ cardLegalities }) {
           {legalArr.map((item, i) => {
             return (
               <li key={i}>
-                {item[0][0].toUpperCase() + item[0].substring(1).toLowerCase()}:{" "}
-                {item[1].toUpperCase()}{" "}
+                {item[0][0].toUpperCase() + item[0].substring(1).toLowerCase()}{" "}
               </li>
             );
           })}
@@ -47,8 +46,7 @@ function CardLegalities({ cardLegalities }) {
           {nonLegalArr.map((item, i) => {
             return (
               <li key={i}>
-                {item[0][0].toUpperCase() + item[0].substring(1).toLowerCase()}:{" "}
-                {item[1].replace("_", " ").toUpperCase()}{" "}
+                {item[0][0].toUpperCase() + item[0].substring(1).toLowerCase()}{" "}
               </li>
             );
           })}

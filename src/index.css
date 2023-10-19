@@ -88,20 +88,24 @@ code {
 }
 
 .mainButton {
-  padding: 0.4rem 1rem;
+  padding: 0.2rem 1rem;
   border-radius: 45px;
   border: black 2px solid;
   background-color: var(--accent-light);
   cursor: pointer;
-  transition: background-color 0.4s ease-in;
+  transition: all 0.2s ease-in;
 }
 .mainButton:hover {
   color: var(--accent-light);
   background-color: var(--accent-dark);
-  transition: background-color 0.4s ease-in;
+  transition: all 0.2s ease-in;
 }
 .mainButton:active {
   transform: scale(0.95);
+}
+.currentSet {
+  margin: 1rem 0;
+  font-size: 1.4rem;
 }
 
 @media only screen and (max-width: 500px) {
