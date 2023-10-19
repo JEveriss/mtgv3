@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const SetColourWrapper = styled.ul`
   display: flex;
-  padding: 3rem 0;
+  margin: 3rem 0 3.5rem 0;
   
   li {
     margin: 0 auto;
@@ -22,7 +22,7 @@ export const SetColourWrapper = styled.ul`
   }
 
   img {
-    height: 2.5rem;
+    height: 3.5rem;
     position: relative;
     :active {
       transform: scale(0.95);
@@ -38,8 +38,6 @@ export const SetColourWrapper = styled.ul`
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    height: 3rem;
-    width: 3rem;
   }
   .checkboxIcon-w {
     background-color: var(--white);
@@ -77,6 +75,11 @@ export const SetColourWrapper = styled.ul`
     background-color: var(--*);
     box-shadow: 0px 0px 10px 2px var(--*)
   } */
+  @media only screen and (max-width: 500px){
+    img {
+      height: 2.5rem;
+    }
+  }
 `;
 
 export const ColoursListWrapper = styled.ul``;

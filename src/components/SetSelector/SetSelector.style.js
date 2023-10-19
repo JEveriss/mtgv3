@@ -3,9 +3,8 @@ import styled from "styled-components";
 export const SetSelectorWrapper = styled.ul`
   display: flex;
   justify-content: space-evenly;
-  margin-bottom: 1rem;
   flex-wrap: wrap;
-
+  font-size: 1.4rem;
   label {
     text-transform: uppercase;
   }
