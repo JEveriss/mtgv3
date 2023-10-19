@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import CardTemplate from "../components/Card/CardTemplate";
 import LoadingSpinner from "../components/Spinner";
 import SetSelector from "../components/SetSelector";
 import ColourSelector from "../components/ColourSelector";
 import { WUBRG } from "../data/Data";
 import logo from "../assets/MTGLogo1.png";
+import NewCard from "../components/Card/NewCard";
 
 function App() {
-  const [setName, setSetName] = useState("neo");
+  const [setName, setSetName] = useState("sld");
   const [cardContext, setCardContext] = useState();
   const [colourState, setColourState] = useState({
     colours: WUBRG,
@@ -37,31 +37,31 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-console.log(window)
+  console.log(window);
 
   return (
-    <div className='app'>
-      <img src={logo} alt='logo'  width="400"/>
-      <ColourSelector
-        colourState={colourState}
-        setColourState={setColourState}
-      />
-
+    <div className="app">
+      <img src={logo} alt="logo" width="400" />
       <SetSelector
         setName={setName}
         setSetName={setSetName}
         cardContext={cardContext}
       />
+      <ColourSelector
+        colourState={colourState}
+        setColourState={setColourState}
+      />
 
-      {cardContext ? (
-        <CardTemplate
-          fetchData={fetchData}
-          cardData={cardContext}
-          colourUrl={mainArr}
-        />
-      ) : (
-        <LoadingSpinner />
-      )}
+      <button
+        className="mainButton"
+        onClick={() => {
+          fetchData();
+        }}
+      >
+        New Card
+      </button>
+
+      {cardContext ? <NewCard cardData={cardContext} /> : <LoadingSpinner />}
     </div>
   );
 }

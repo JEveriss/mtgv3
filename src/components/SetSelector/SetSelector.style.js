@@ -4,7 +4,8 @@ export const SetSelectorWrapper = styled.ul`
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 1rem;
-  
+  flex-wrap: wrap;
+
   label {
     text-transform: uppercase;
   }
@@ -16,6 +17,7 @@ export const SetSelectorWrapper = styled.ul`
   li {
     display: flex;
     flex-direction: row;
+    margin: 0 0.5rem;
   }
 
   p {
