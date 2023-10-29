@@ -79,7 +79,7 @@ export const NewCardWrapper = styled.div`
     text-decoration: none;
     cursor: auto;
   }
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 850px) {
     .cardTitle {
       display: contents;
       div {
@@ -87,11 +87,14 @@ export const NewCardWrapper = styled.div`
       }
     }
     .cardBox {
-flex-direction: column-reverse;
+      flex-direction: column-reverse;
       .cardDetails,
       div {
         width: 100%;
       }
+    }
+    .cardImage > img {
+      margin: auto;
     }
     h1 {
       font-size: 1.5rem;
