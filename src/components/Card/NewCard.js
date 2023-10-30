@@ -13,6 +13,12 @@ function NewCard({ cardData }) {
 
   const [activeImage, setActiveImage] = useState(null);
 
+  let currentName = cardData.name
+  // if (cardData.card_faces){
+  //   let 
+  // }
+  console.log(currentName)
+
   return (
     <NewCardWrapper>
       {cardData?.card_faces ? (

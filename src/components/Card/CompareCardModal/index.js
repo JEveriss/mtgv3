@@ -1,15 +1,14 @@
-import React from "react";
-import { Modal } from "./CardArtModal.style";
-import { cardArtStatus } from "../../../mixpanel";
+import React from 'react'
+import { CompareCard } from './CompareCardModal.style'
 
-function CardArtModal(props) {
-console.log(!props.activeImage)
-  if (!props.activeImage || props?.modalCard.image_uris.art_crop !== props.activeImage) {
+function CompareCardModal(props) {
+// const {modalCard} = props
+if (!props.activeImage || props?.modalCard.image_uris.art_crop !== props.activeImage) {
     return null;
   }
   console.log("PROPS: ", props?.modalCard);
   return (
-    <Modal onClick={props.onClose}>
+    <CompareCard onClick={props.onClose}>
       <div
         className={
           props.modalCard?.type_line === "Enchantment — Saga"
@@ -27,7 +26,6 @@ console.log(!props.activeImage)
             className="mainButton"
             onClick={() => {
               props.onClose();
-              cardArtStatus("closed");
             }}
           >
             Close
@@ -36,11 +34,11 @@ console.log(!props.activeImage)
 
         <img
           src={props?.modalCard.image_uris.art_crop}
-          alt={props?.modalCard?.name}
+          alt={props.modalCard?.name}
         />
       </div>
-    </Modal>
+    </CompareCard>
   );
 }
 
-export default CardArtModal;
+export default CompareCardModal

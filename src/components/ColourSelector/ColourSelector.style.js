@@ -75,7 +75,7 @@ export const SetColourWrapper = styled.ul`
     background-color: var(--*);
     box-shadow: 0px 0px 10px 2px var(--*)
   } */
-  @media only screen and (max-width: 500px){
+  @media only screen and (max-width: 850px){
     img {
       height: 2.5rem;
     }
