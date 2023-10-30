@@ -6,9 +6,10 @@ import ColourSelector from "../components/ColourSelector";
 import { WUBRG } from "../data/Data";
 import logo from "../assets/MTGLogo1.png";
 import NewCard from "../components/Card/NewCard";
+import NewCardTEMP from "../components/Card/NewCardTEMP";
 
 function App() {
-  const [setName, setSetName] = useState("sld");
+  const [setName, setSetName] = useState(" ");
   const [cardContext, setCardContext] = useState();
   const [colourState, setColourState] = useState({
     colours: WUBRG,
@@ -51,7 +52,6 @@ function App() {
         colourState={colourState}
         setColourState={setColourState}
       />
-
       <button
         className="mainButton"
         onClick={() => {
@@ -60,8 +60,9 @@ function App() {
       >
         New Card
       </button>
-
       {cardContext ? <NewCard cardData={cardContext} /> : <LoadingSpinner />}
+      {cardContext ? <NewCardTEMP cardData={cardContext} /> : <LoadingSpinner />}
+      
     </div>
   );
 }

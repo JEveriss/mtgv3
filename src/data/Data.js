@@ -1,3 +1,4 @@
+
 import w from "../assets/1-White.svg";
 import u from "../assets/2-Blue.svg";
 import b from "../assets/3-Black.svg";
@@ -60,4 +61,16 @@ export const setList = [
   { id: 7, abbr: "mom" },
   { id: 8, abbr: "clb" },
   { id: 9, abbr: "iko" },
+  { id: 10, abbr: "exo" },
 ];
+
+export const compareCards = [];
+
+// {name:  
+// manacost:
+// type:
+// usd:
+// eur:
+// power:
+// toughness:
+// rarity:}
