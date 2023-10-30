@@ -61,7 +61,7 @@ function App() {
         New Card
       </button>
       {cardContext ? <NewCard cardData={cardContext} /> : <LoadingSpinner />}
-      {cardContext ? <NewCardTEMP cardData={cardContext} /> : <LoadingSpinner />}
+       <NewCardTEMP cardData={cardContext} />
       
     </div>
   );
