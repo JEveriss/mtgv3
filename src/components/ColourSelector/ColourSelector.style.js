@@ -42,27 +42,27 @@ export const SetColourWrapper = styled.ul`
   
   .checkboxIcon-w {
     background-color: var(--white);
-    box-shadow: 0px 0px 4px 8px var(--white);
+    box-shadow: 0px 0px 12px 8px var(--white);
   }
   .checkboxIcon-u {
     background-color: var(--blue);
-    box-shadow: 0px 0px 4px 8px var(--blue);
+    box-shadow: 0px 0px 12px 8px var(--blue);
   }
   .checkboxIcon-b {
     background-color: var(--black);
-    box-shadow: 0px 0px 4px 8px var(--black);
+    box-shadow: 0px 0px 12px 8px var(--black);
   }
   .checkboxIcon-r {
     background-color: var(--red);
-    box-shadow: 0px 0px 4px 8px var(--red);
+    box-shadow: 0px 0px 12px 8px var(--red);
   }
   .checkboxIcon-g {
     background-color: var(--green);
-    box-shadow: 0px 0px 4px 8px var(--green);
+    box-shadow: 0px 0px 12px 8px var(--green);
   }
   .checkboxIcon-colorless {
     background-color: var(--colorless);
-    box-shadow: 0px 0px 4px 8px var(--colorless);
+    box-shadow: 0px 0px 12px 8px var(--colorless);
   }
 
   /* 

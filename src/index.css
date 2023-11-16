@@ -63,6 +63,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #eff1ff;
   font-size: 1.2rem;
+
+  /* background-image: url("../src//assets/PiotrDuraBackground.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed; */
 }
 
 code {
