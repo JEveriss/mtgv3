@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { CompareCard } from "./CompareCards.style";
 // import CardImage from "./CardImage";
 
 function NewCardTEMP({ cardData }) {
@@ -11,47 +12,46 @@ function NewCardTEMP({ cardData }) {
     console.log(e);
     const newCard = {
       name: cardData.name,
+      artist: cardData.artist,
       mana_cost: cardData.mana_cost,
       type_line: cardData.type_line,
-      // usd: cardData.prices.usd,
-      //   eur: cardData.prices.eur,
+      eur: cardData.prices.eur,
       power: cardData.power,
       toughness: cardData.toughness,
       rarity: cardData.rarity,
-      image: cardData.image_uris.normal
+      image: cardData.image_uris.normal,
     };
     setCompareCards([...compareCards, newCard]);
   }
-  console.log("compareCards", compareCards);
+
+  function newManaCost(item) {
+    return item.replaceAll("{", "").replaceAll("}", "");
+  }
 
   return (
-    <div>
+    <CompareCard>
       <button onClick={addCard}>ADD CARD</button>
+
       {compareCards.map((item) => {
-        console.log(item)
+        console.log(newManaCost(item.mana_cost));
         return (
-          <>
+          <div className="compareCardWrapper">
             <h2>{item.name}</h2>
-            <div className="cardTitle">
-              <h2>art by {item.artist}</h2>
-            </div>
             <div className="cardImage">
-              {/* <CardImage card={item} /> */}
               <img alt="temp text" src={item?.image} />
             </div>
             <ul>
-              <li>MANA VALUE: {item?.mana_cost}</li>
+              <li>MANA VALUE: {newManaCost(item?.mana_cost)}</li>
               <li>TYPE: {item?.type_line}</li>
-              {/* <li>USD: ${item?.prices.usd}</li> */}
-              {/* <li>EUR: €{item?.prices.eur}</li> */}
-              <li>POWER: {item?.power}</li>
-              <li>TOUGHNESS: {item?.toughness}</li>
               <li>RARITY: {item?.rarity}</li>
+              {item?.eur ? <li>EUR: {`€${item?.eur}`}</li> : null}
+              {item?.power ? <li>POWER: {item?.power}</li> : null}
+              {item?.toughness ? <li>TOUGHNESS: {item?.toughness}</li> : null}
             </ul>
-          </>
+          </div>
         );
       })}
-    </div>
+    </CompareCard>
   );
 }
 

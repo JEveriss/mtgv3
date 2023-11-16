@@ -3,6 +3,7 @@ import CardImage from "./CardImage";
 import CardArtModal from "./CardArtModal";
 import CardLegalities from "./CardLegalities";
 import { NewCardWrapper } from "./Card.style";
+import "./tempstyle.css";
 
 function NewCard({ cardData }) {
   const currentDate = new Date(cardData?.released_at);
@@ -13,15 +14,9 @@ function NewCard({ cardData }) {
 
   const [activeImage, setActiveImage] = useState(null);
 
-  let currentName = cardData.name
-  // if (cardData.card_faces){
-  //   let 
-  // }
-  console.log(currentName)
-
   return (
     <NewCardWrapper>
-      {cardData?.card_faces ? (
+      {cardData?.card_faces && !cardData.image_uris ? (
         cardData?.card_faces.map((item) => {
           return (
             <>

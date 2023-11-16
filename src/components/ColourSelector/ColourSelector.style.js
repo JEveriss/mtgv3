@@ -39,29 +39,30 @@ export const SetColourWrapper = styled.ul`
     align-items: center;
     border-radius: 50%;
   }
+  
   .checkboxIcon-w {
     background-color: var(--white);
-    box-shadow: 0px 0px 10px 2px var(--white);
+    box-shadow: 0px 0px 4px 8px var(--white);
   }
   .checkboxIcon-u {
     background-color: var(--blue);
-    box-shadow: 0px 0px 10px 2px var(--blue);
+    box-shadow: 0px 0px 4px 8px var(--blue);
   }
   .checkboxIcon-b {
     background-color: var(--black);
-    box-shadow: 0px 0px 10px 2px var(--black);
+    box-shadow: 0px 0px 4px 8px var(--black);
   }
   .checkboxIcon-r {
     background-color: var(--red);
-    box-shadow: 0px 0px 10px 2px var(--red);
+    box-shadow: 0px 0px 4px 8px var(--red);
   }
   .checkboxIcon-g {
     background-color: var(--green);
-    box-shadow: 0px 0px 10px 2px var(--green);
+    box-shadow: 0px 0px 4px 8px var(--green);
   }
   .checkboxIcon-colorless {
     background-color: var(--colorless);
-    box-shadow: 0px 0px 10px 2px var(--colorless);
+    box-shadow: 0px 0px 4px 8px var(--colorless);
   }
 
   /* 

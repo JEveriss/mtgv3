@@ -6,7 +6,8 @@ import ColourSelector from "../components/ColourSelector";
 import { WUBRG } from "../data/Data";
 import logo from "../assets/MTGLogo1.png";
 import NewCard from "../components/Card/NewCard";
-import NewCardTEMP from "../components/Card/NewCardTEMP";
+import NewCardTEMP from "../components/Card/CompareCardList";
+import "../components/Card/tempstyle.css";
 
 function App() {
   const [setName, setSetName] = useState(" ");
@@ -15,6 +16,7 @@ function App() {
     colours: WUBRG,
     filters: new Set(),
   });
+  const [fadeIn, setFadeIn] = useState(0);
 
   const mainArr = Array.from(colourState.filters);
   const colourUrl = mainArr.toString().replaceAll(",", "");
@@ -38,7 +40,7 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(window);
+  // console.log(window);
 
   return (
     <div className="app">
@@ -53,16 +55,19 @@ function App() {
         setColourState={setColourState}
       />
       <button
-        className="mainButton"
+        className="mainButton image"
         onClick={() => {
           fetchData();
+          setFadeIn(1);
         }}
+        onAnimationEnd={() => setFadeIn(0)}
+        fadeIn={fadeIn}
       >
         New Card
       </button>
+
       {cardContext ? <NewCard cardData={cardContext} /> : <LoadingSpinner />}
-      {cardContext ? <NewCardTEMP cardData={cardContext} /> : <LoadingSpinner />}
-      
+      <NewCardTEMP cardData={cardContext} />
     </div>
   );
 }
