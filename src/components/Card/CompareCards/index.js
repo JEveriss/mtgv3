@@ -1,14 +1,11 @@
 import React, { useState } from "react";
+import { CompareCardModal } from "./CompareCardModal.style";
 // import CardImage from "./CardImage";
 
-function NewCardTEMP({ cardData }) {
-  //   const [activeImage, setActiveImage] = useState(null);
-  //   console.log("FROM THE TEMP ", activeImage, setActiveImage);
-
+function CompareCards({ cardData }) {
   const [compareCards, setCompareCards] = useState([]);
 
-  function addCard(e) {
-    console.log(e);
+  function addCard() {
     const newCard = {
       name: cardData.name,
       artist: cardData.artist,
@@ -24,34 +21,21 @@ function NewCardTEMP({ cardData }) {
   }
 
   function newManaCost(item) {
-    return item.replace("{", "").replace("}", "");
+    return item.replaceAll("{", "").replaceAll("}", "");
   }
-
+  console.log(compareCards);
   return (
-    <>
-      <button onClick={addCard}>ADD CARD</button>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          flexWrap: "wrap",
-        }}
-      >
+    <CompareCardModal>
+      <button className="mainButton" onClick={addCard}>
+        Save Card
+      </button>
+      <div className="mdoalmodal" onClick={(e) => e.stopPropagation()}>
         {compareCards.map((item) => {
-          console.log(newManaCost(item.mana_cost));
           return (
-            <div>
+            <div className="compareCardWrapper">
               <h2>{item.name}</h2>
-              {/* <div className="cardTitle">
-                <h2>art by {item?.artist}</h2>
-              </div> */}
               <div className="cardImage">
-                {/* <CardImage card={item} /> */}
-                <img
-                  style={{ height: "400px" }}
-                  alt="temp text"
-                  src={item?.image}
-                />
+                <img alt={item?.name} src={item?.image} />
               </div>
               <ul>
                 <li>MANA VALUE: {newManaCost(item?.mana_cost)}</li>
@@ -65,8 +49,8 @@ function NewCardTEMP({ cardData }) {
           );
         })}
       </div>
-    </>
+    </CompareCardModal>
   );
 }
 
-export default NewCardTEMP;
+export default CompareCards;

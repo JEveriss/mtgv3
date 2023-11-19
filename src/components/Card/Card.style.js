@@ -10,12 +10,14 @@ export const FormatLegalities = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: background-color 0.2s ease-in;
+    transition: all 0.2s ease-in;
     padding: 1rem;
     cursor: pointer;
   }
   summary:hover {
     background-color: var(--accent-dark);
+    color: var(--accent-light);
+    transition: all 0.2s ease-in;
   }
   img {
     transition: transform 0.2s ease-in-out;
@@ -26,13 +28,14 @@ export const FormatLegalities = styled.div`
     }
   }
   ul {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    /* flex-wrap: wrap; */
   }
   li {
-    :not(:last-child):after {
-      content: "•";
-      padding: 0 1.5rem;
+    :before {
+      content: "|";
+      color: #999999;
     }
   }
 `;

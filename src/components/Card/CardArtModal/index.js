@@ -3,11 +3,13 @@ import { Modal } from "./CardArtModal.style";
 import { cardArtStatus } from "../../../mixpanel";
 
 function CardArtModal(props) {
-console.log(!props.activeImage)
-  if (!props.activeImage || props?.modalCard.image_uris.art_crop !== props.activeImage) {
+  console.log(props);
+  if (
+    !props.activeImage ||
+    props?.modalCard.image_uris.art_crop !== props.activeImage
+  ) {
     return null;
   }
-  console.log("PROPS: ", props?.modalCard);
   return (
     <Modal onClick={props.onClose}>
       <div
@@ -20,7 +22,7 @@ console.log(!props.activeImage)
       >
         <span className="modalheader">
           <div>
-            <h1 className="modaltitle">{props.modalCard?.name}</h1>
+            <h2 className="modaltitle">{props.modalCard?.name}</h2>
             <p>{props.modalCard?.artist}</p>
           </div>
           <button

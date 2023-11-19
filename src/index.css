@@ -9,16 +9,12 @@
   padding: 0;
 }
 
-/* html {
-  height: 100%;
-  max-width: 1170px;
-  padding: 2rem;
-  margin: 0 auto;
-} */
-
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
 }
 
 img,
@@ -94,6 +90,7 @@ code {
   background-color: var(--accent-light);
   cursor: pointer;
   transition: all 0.2s ease-in;
+  height: 3rem;
 }
 .mainButton:hover {
   color: var(--accent-light);

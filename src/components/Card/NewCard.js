@@ -3,6 +3,7 @@ import CardImage from "./CardImage";
 import CardArtModal from "./CardArtModal";
 import CardLegalities from "./CardLegalities";
 import { NewCardWrapper } from "./Card.style";
+import "./tempstyle.css";
 
 function NewCard({ cardData }) {
   const currentDate = new Date(cardData?.released_at);
@@ -15,7 +16,7 @@ function NewCard({ cardData }) {
 
   return (
     <NewCardWrapper>
-      {cardData?.card_faces ? (
+      {cardData?.card_faces && !cardData.image_uris ? (
         cardData?.card_faces.map((item) => {
           return (
             <>
@@ -31,6 +32,11 @@ function NewCard({ cardData }) {
                   >
                     Enlarge Art
                   </button>
+                  <CardArtModal
+                    modalCard={item}
+                    onClose={() => setActiveImage(null)}
+                    activeImage={activeImage}
+                  />
                 </div>
                 <div className="artistDetails">
                   <h2>art by {item.artist}</h2>
@@ -39,7 +45,9 @@ function NewCard({ cardData }) {
                     rel="noreferrer"
                     href={`https://www.google.com/search?q=${item.artist} art`}
                   >
-                    <div className="italicText">Search on Google</div>
+                    <div className="italicText">
+                      Search {item.artist} on Google
+                    </div>
                   </a>
                 </div>
               </div>
@@ -48,7 +56,11 @@ function NewCard({ cardData }) {
                 <div className="cardDetails">
                   <p>Set: {cardData?.set_name}</p>
                   <p>Released: {newDate}</p>
-                  <a href={cardData?.scryfall_uri}>
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={cardData?.scryfall_uri}
+                  >
                     <div className="italicText">View on Scryfall</div>
                   </a>
                   <hr />
@@ -58,12 +70,6 @@ function NewCard({ cardData }) {
                   <CardImage card={item} />
                 </div>
               </div>
-
-              <CardArtModal
-                modalCard={item}
-                onClose={() => setActiveImage(null)}
-                activeImage={activeImage}
-              />
             </>
           );
         })
@@ -81,6 +87,11 @@ function NewCard({ cardData }) {
               >
                 Enlarge Art
               </button>
+              <CardArtModal
+                modalCard={cardData}
+                onClose={() => setActiveImage(null)}
+                activeImage={activeImage}
+              />
             </div>
             <div className="artistDetails">
               <h2>art by {cardData.artist}</h2>
@@ -89,7 +100,9 @@ function NewCard({ cardData }) {
                 rel="noreferrer"
                 href={`https://www.google.com/search?q=${cardData.artist} art`}
               >
-                <div className="italicText">Search on Google</div>
+                <div className="italicText">
+                  Search {cardData.artist} on Google
+                </div>
               </a>
             </div>
           </div>
@@ -98,7 +111,7 @@ function NewCard({ cardData }) {
             <div className="cardDetails">
               <p>Set: {cardData?.set_name}</p>
               <p>Released: {newDate}</p>
-              <a href={cardData?.scryfall_uri}>
+              <a target="_blank" rel="noreferrer" href={cardData?.scryfall_uri}>
                 <div className="italicText">View on Scryfall</div>
               </a>
               <hr />
@@ -108,12 +121,6 @@ function NewCard({ cardData }) {
               <CardImage card={cardData} />
             </div>
           </div>
-
-          <CardArtModal
-            modalCard={cardData}
-            onClose={() => setActiveImage(null)}
-            activeImage={activeImage}
-          />
         </>
       )}
     </NewCardWrapper>

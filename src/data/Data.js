@@ -61,7 +61,7 @@ export const setList = [
   { id: 7, abbr: "mom" },
   { id: 8, abbr: "clb" },
   { id: 9, abbr: "iko" },
-  { id: 10, abbr: "exo" },
+  { id: 10, abbr: "woe" },
 ];
 
 export const compareCards = [];
