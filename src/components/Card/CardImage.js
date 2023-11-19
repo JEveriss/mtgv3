@@ -1,15 +1,16 @@
 import React from "react";
 import { CardImageWrapper } from "./Card.style";
 // import "../Testing/Testing.css"
-import './tempstyle.css'
+import "./tempstyle.css";
 
 function CardImage({ card }) {
+  document.querySelector(".image").classList.add(".addedClass");
   return (
     <CardImageWrapper
-    className="image"
+      className="image"
       alt={card?.name}
       src={card?.image_uris?.normal}
-    ></CardImageWrapper>
+    />
   );
 }
 

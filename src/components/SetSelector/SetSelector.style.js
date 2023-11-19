@@ -17,6 +17,7 @@ export const SetSelectorWrapper = styled.ul`
     display: flex;
     flex-direction: row;
     margin: 0 0.5rem;
+    line-height: 1;
   }
 
   p {
