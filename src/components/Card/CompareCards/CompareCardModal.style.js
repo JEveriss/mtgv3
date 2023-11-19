@@ -15,6 +15,6 @@ export const CompareCardModal = styled.div`
     max-width: 400px;
   }
   img {
-    border-radius: 5px;
+    border-radius: 4%;
   }
 `;
