@@ -44,7 +44,6 @@ function CardLegalities({ cardLegalities }) {
         </summary>
         <ul>
           {nonLegalArr.map((item, i) => {
-            console.log(item, item[0].length);
             return (
               <li key={i}>
                 {item[0][0].toUpperCase() + item[0].substring(1).toLowerCase()}{" "}

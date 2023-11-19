@@ -19,8 +19,6 @@ function App() {
   });
   const [fadeIn, setFadeIn] = useState(0);
 
-  // console.log(addCard)
-
   const mainArr = Array.from(colourState.filters);
   const colourUrl = mainArr.toString().replaceAll(",", "");
 
@@ -68,7 +66,6 @@ function App() {
           >
             New Card
           </button>
-          {/* <button onClick={()} className="mainButton">Save Card</button> */}
           <CompareCards cardData={cardContext} />
         </div>
         {cardContext ? <NewCard cardData={cardContext} /> : <LoadingSpinner />}
