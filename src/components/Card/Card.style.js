@@ -33,7 +33,7 @@ export const FormatLegalities = styled.div`
     /* flex-wrap: wrap; */
   }
   li {
-    :not(:last-child):after {
+    :before {
       content: "|";
       color: #999999;
     }

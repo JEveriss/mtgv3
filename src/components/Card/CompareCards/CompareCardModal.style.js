@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CompareCard = styled.div`
+export const CompareCardModal = styled.div`
   display: block;
 
   h2 {

@@ -2,17 +2,18 @@ import styled from "styled-components";
 
 export const SetColourWrapper = styled.ul`
   display: flex;
-  margin: 3rem 0 3.5rem 0;
-  
+  min-height: 5.5rem;
+
   li {
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  
+
   input {
     position: absolute;
+    display: contents;
   }
 
   label {
@@ -28,18 +29,18 @@ export const SetColourWrapper = styled.ul`
       transform: scale(0.95);
     }
   }
-  
+
   .greyedOut {
     filter: grayscale(1);
   }
-  
+
   .colourIcon {
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
   }
-  
+
   .checkboxIcon-w {
     background-color: var(--white);
     box-shadow: 0px 0px 12px 8px var(--white);
@@ -76,7 +77,7 @@ export const SetColourWrapper = styled.ul`
     background-color: var(--*);
     box-shadow: 0px 0px 10px 2px var(--*)
   } */
-  @media only screen and (max-width: 850px){
+  @media only screen and (max-width: 850px) {
     img {
       height: 2.5rem;
     }

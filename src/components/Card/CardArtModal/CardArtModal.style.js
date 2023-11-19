@@ -11,11 +11,7 @@ export const Modal = styled.div`
   align-items: center;
   justify-content: center;
   padding: 0.5rem;
-
-  /* button {
-    border-radius: 0%;
-    border: 1px black solid;
-  } */
+  z-index: 50;
 
   img {
     width: 100%;
@@ -38,6 +34,7 @@ export const Modal = styled.div`
     justify-content: space-between;
     padding: 0.8rem;
     border-bottom: 2px #000 solid;
+    align-items: center;
   }
   .modaltitle {
     margin: 0;
