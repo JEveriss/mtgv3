@@ -1,6 +1,6 @@
 import React from "react";
-import { FormatLegalities } from "./Card.style";
-import { Chevron } from "../../assets/Chevron";
+import { FormatLegalities } from './CardLegalities.style'
+import { Chevron } from "../../../../assets/Chevron";
 
 function CardLegalities({ cardLegalities }) {
   const legalObject = Object.entries(cardLegalities);

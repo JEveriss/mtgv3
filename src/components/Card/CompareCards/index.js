@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { CompareCardModal } from "./CompareCardModal.style";
-// import CardImage from "./CardImage";
 
 function CompareCards({ cardData }) {
   const [compareCards, setCompareCards] = useState([]);
