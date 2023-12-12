@@ -6,7 +6,6 @@ import ColourSelector from "../components/ColourSelector";
 import { WUBRG } from "../data/Data";
 import logo from "../assets/MTGLogo1.png";
 import NewCard from "../components/Card/NewCard";
-// import CompareCards from "../components/Card/CompareCard";
 import "../components/Card/tempstyle.css";
 import CompareCards from "../components/Card/CompareCards";
 
@@ -42,6 +41,9 @@ function App() {
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+console.log("CARD IDENTITY", cardContext?.color_identity)
+
 
   return (
     <div className="appWrap">

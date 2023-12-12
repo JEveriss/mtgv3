@@ -15,6 +15,12 @@ body {
   -ms-overflow-style: none; /* for Internet Explorer, Edge */
   scrollbar-width: none; /* for Firefox */
   overflow-y: scroll;
+  margin: 0;
+  font-family: "Petrona", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #eff1ff;
+  font-size: 1.2rem;
 }
 
 img,
@@ -52,15 +58,6 @@ li {
   isolation: isolate;
 }
 
-body {
-  margin: 0;
-  font-family: "Petrona", serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #eff1ff;
-  font-size: 1.2rem;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -82,7 +79,6 @@ code {
   --accent-dark: #607694;
   --accent-light: #e9e9e9;
 }
-
 .mainButton {
   padding: 0.2rem 1rem;
   border-radius: 45px;
@@ -110,3 +106,4 @@ code {
     margin: auto;
   }
 }
+

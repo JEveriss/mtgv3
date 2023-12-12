@@ -1,17 +1,13 @@
 import React, { useState } from "react";
-import CardImage from "./CardImage";
+import CardImage from "./CardComponents/Image";
 import CardArtModal from "./CardArtModal";
-import CardLegalities from "./CardLegalities";
+import CardLegalities from "./CardComponents/Legalities";
 import { NewCardWrapper } from "./Card.style";
 import "./tempstyle.css";
+import ArtistLink from "./CardComponents/ArtistLink";
+import CardDetails from "./CardComponents/Details";
 
 function NewCard({ cardData }) {
-  const currentDate = new Date(cardData?.released_at);
-  const date = currentDate.getDate();
-  const month = currentDate.getMonth();
-  const year = currentDate.getFullYear();
-  let newDate = month + 1 + "/" + date + "/" + year;
-
   const [activeImage, setActiveImage] = useState(null);
 
   return (
@@ -38,32 +34,12 @@ function NewCard({ cardData }) {
                     activeImage={activeImage}
                   />
                 </div>
-                <div className="artistDetails">
-                  <h2>art by {item.artist}</h2>
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    href={`https://www.google.com/search?q=${item.artist} art`}
-                  >
-                    <div className="italicText">
-                      Search {item.artist} on Google
-                    </div>
-                  </a>
-                </div>
+                <ArtistLink item={item} />
               </div>
 
               <div className="cardBox">
                 <div className="cardDetails">
-                  <p>Set: {cardData?.set_name}</p>
-                  <p>Released: {newDate}</p>
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    href={cardData?.scryfall_uri}
-                  >
-                    <div className="italicText">View on Scryfall</div>
-                  </a>
-                  <hr />
+                  <CardDetails cardData={cardData} />
                   <CardLegalities cardLegalities={cardData.legalities} />
                 </div>
                 <div className="cardImage">
@@ -93,28 +69,12 @@ function NewCard({ cardData }) {
                 activeImage={activeImage}
               />
             </div>
-            <div className="artistDetails">
-              <h2>art by {cardData.artist}</h2>
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href={`https://www.google.com/search?q=${cardData.artist} art`}
-              >
-                <div className="italicText">
-                  Search {cardData.artist} on Google
-                </div>
-              </a>
-            </div>
+            <ArtistLink item={cardData} />
           </div>
 
           <div className="cardBox">
             <div className="cardDetails">
-              <p>Set: {cardData?.set_name}</p>
-              <p>Released: {newDate}</p>
-              <a target="_blank" rel="noreferrer" href={cardData?.scryfall_uri}>
-                <div className="italicText">View on Scryfall</div>
-              </a>
-              <hr />
+              <CardDetails cardData={cardData} />
               <CardLegalities cardLegalities={cardData.legalities} />
             </div>
             <div className="cardImage">

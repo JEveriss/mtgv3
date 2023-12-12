@@ -1,49 +1,5 @@
 import styled from "styled-components";
 
-export const CardImageWrapper = styled.img`
-  border-radius: 4%;
-`;
-
-export const FormatLegalities = styled.div`
-  summary {
-    list-style-type: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.2s ease-in;
-    padding: 1rem;
-    cursor: pointer;
-  }
-  summary:hover {
-    background-color: var(--accent-dark);
-    color: var(--accent-light);
-    transition: all 0.2s ease-in;
-  }
-  img {
-    transition: transform 0.2s ease-in-out;
-  }
-  details[open] {
-    summary img {
-      transform: rotate(180deg);
-    }
-  }
-  ul {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    /* flex-wrap: wrap; */
-  }
-  li {
-    :before {
-      content: "|";
-      color: #999999;
-    }
-  }
-`;
-
-export const CardTitleWrapper = styled.h1`
-  color: #000111;
-`;
-
 export const NewCardWrapper = styled.div`
   h1 {
     padding-top: 1rem;
@@ -66,15 +22,6 @@ export const NewCardWrapper = styled.div`
       align-items: baseline;
     }
   }
-  .italicText {
-    transform: skew(0deg);
-    transition: all 0.5s;
-    width: fit-content;
-    cursor: pointer;
-    :hover {
-      transform: skew(-15deg);
-    }
-  }
 
   a {
     color: #131200;
@@ -82,6 +29,7 @@ export const NewCardWrapper = styled.div`
     text-decoration: none;
     cursor: auto;
   }
+
   @media only screen and (max-width: 850px) {
     .cardTitle {
       display: contents;

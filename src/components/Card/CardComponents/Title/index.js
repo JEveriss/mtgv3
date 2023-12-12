@@ -1,15 +1,16 @@
 import React from "react";
-import { CardTitleWrapper } from "./Card.style";
+import { CardTitleWrapper } from "./Title.style";
 
-function CardTitle({ title, backgroundColor, colourState, colourUrl }) {
-
+function CardTitle({ title }) {
   // const mainObj = colourState.filters;
   // const mainArr = Array.from(mainObj);
 
   // console.log('TITLE', colourUrl)
 
   return (
-    <CardTitleWrapper backgroundColor={backgroundColor}>{title}</CardTitleWrapper>
+    <CardTitleWrapper >
+      {title}
+    </CardTitleWrapper>
   );
 }
 
