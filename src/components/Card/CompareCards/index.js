@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { CompareCardModal } from "./CompareCardModal.style";
-// import CardImage from "./CardImage";
 
 function CompareCards({ cardData }) {
   const [compareCards, setCompareCards] = useState([]);
@@ -23,7 +22,7 @@ function CompareCards({ cardData }) {
   function newManaCost(item) {
     return item.replaceAll("{", "").replaceAll("}", "");
   }
-  console.log(compareCards);
+  console.log("COMPARTE CARDS", compareCards);
   return (
     <CompareCardModal>
       <button className="mainButton" onClick={addCard}>

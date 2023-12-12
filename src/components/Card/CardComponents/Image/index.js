@@ -1,7 +1,5 @@
 import React from "react";
-import { CardImageWrapper } from "./Card.style";
-// import "../Testing/Testing.css"
-import "./tempstyle.css";
+import { CardImageWrapper } from "./Image.style";
 
 function CardImage({ card }) {
   document.querySelector(".image").classList.add(".addedClass");
