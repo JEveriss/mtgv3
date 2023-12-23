@@ -6,6 +6,7 @@ import { NewCardWrapper } from "./Card.style";
 import "./tempstyle.css";
 import ArtistLink from "./CardComponents/ArtistLink";
 import CardDetails from "./CardComponents/Details";
+import Button from "../Button";
 
 function NewCard({ cardData }) {
   const [activeImage, setActiveImage] = useState(null);
@@ -20,14 +21,13 @@ function NewCard({ cardData }) {
               <div className="cardTitle">
                 <div>
                   <h3>{item.type_line}</h3>
-                  <button
-                    className="mainButton"
+
+                  <Button
                     onClick={() => {
                       setActiveImage(item.image_uris.art_crop);
                     }}
-                  >
-                    Enlarge Art
-                  </button>
+                    text={"Enlarge Art"}
+                  />
                   <CardArtModal
                     modalCard={item}
                     onClose={() => setActiveImage(null)}

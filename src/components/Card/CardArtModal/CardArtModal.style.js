@@ -10,30 +10,26 @@ export const Modal = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
   z-index: 50;
-
   img {
+    height: auto;
     width: 100%;
   }
-
   .saga {
     width: 32vh;
     background-color: #fff;
-    border: 2px solid #000;
+    border: 2px solid var(--primary-black);
   }
-
   .modalcontent {
-    width: 100vh;
+    width: 75vw;
     background-color: #fff;
-    border: 2px solid #000;
+    border: 2px solid var(--primary-black);
   }
-
   .modalheader {
     display: flex;
     justify-content: space-between;
     padding: 0.8rem;
-    border-bottom: 2px #000 solid;
+    border-bottom: 2px var(--primary-black) solid;
     align-items: center;
   }
   .modaltitle {

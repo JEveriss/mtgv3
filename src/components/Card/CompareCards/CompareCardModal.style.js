@@ -1,8 +1,15 @@
 import styled from "styled-components";
 
 export const CompareCardModal = styled.div`
-  display: block;
+  position: absolute;
+  background-color: #fff;
+  padding: 15px;
+  z-index: 1000;
+  width: 50%;
+  border-radius: 0.5em;
+`;
 
+export const CompareCardOverlay = styled.div`
   h2 {
     text-overflow: ellipsis;
     white-space: no-wrap;

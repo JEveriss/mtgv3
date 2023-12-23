@@ -8,6 +8,7 @@ import logo from "../assets/MTGLogo1.png";
 import NewCard from "../components/Card/NewCard";
 import "../components/Card/tempstyle.css";
 import CompareCards from "../components/Card/CompareCards";
+import Button from "../components/Button";
 
 function App() {
   const [setName, setSetName] = useState(" ");
@@ -17,8 +18,6 @@ function App() {
     filters: new Set(),
   });
   const [fadeIn, setFadeIn] = useState(0);
-
-  // console.log(addCard)
 
   const mainArr = Array.from(colourState.filters);
   const colourUrl = mainArr.toString().replaceAll(",", "");
@@ -42,13 +41,35 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-console.log("CARD IDENTITY", cardContext?.color_identity)
+  const [openModal, setOpenModal] = useState(false);
+  const Toggle = () => setOpenModal(!openModal);
 
+  const [compareCards, setCompareCards] = useState([]);
+  function addCard() {
+    const newCard = {
+      name: cardContext.name,
+      artist: cardContext.artist,
+      mana_cost: cardContext.mana_cost,
+      type_line: cardContext.type_line,
+      eur: cardContext.prices.eur,
+      power: cardContext.power,
+      toughness: cardContext.toughness,
+      rarity: cardContext.rarity,
+      image: cardContext.image_uris.normal,
+    };
+    setCompareCards([...compareCards, newCard]);
+  }
 
   return (
     <div className="appWrap">
       <div className="app">
-        <img src={logo} alt="logo" width="400" />
+        <h1>
+          <img
+            src={logo}
+            alt="Magic the Gathering Logo"
+            width="400"
+          />
+        </h1>
         <SetSelector
           setName={setName}
           setSetName={setSetName}
@@ -70,8 +91,26 @@ console.log("CARD IDENTITY", cardContext?.color_identity)
           >
             New Card
           </button>
-          {/* <button onClick={()} className="mainButton">Save Card</button> */}
-          <CompareCards cardData={cardContext} />
+          <Button
+            className="image"
+            onClick={() => {
+              fetchData();
+              setFadeIn(1);
+            }}
+            onAnimationEnd={() => setFadeIn(0)}
+            fadeIn={fadeIn}
+            text={"NEW CARD"}
+          />
+
+          <Button onClick={addCard} text={"Save Card"} />
+          <Button onClick={Toggle} text={"Open Modal"} />
+
+          <CompareCards
+            compareCards={compareCards}
+            addCard={addCard}
+            show={openModal}
+            toggle={Toggle}
+          />
         </div>
         {cardContext ? <NewCard cardData={cardContext} /> : <LoadingSpinner />}
       </div>
