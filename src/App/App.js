@@ -9,6 +9,7 @@ import NewCard from "../components/Card/NewCard";
 import "../components/Card/tempstyle.css";
 import CompareCards from "../components/Card/CompareCards";
 import Button from "../components/Button";
+import { Register } from "../components/TempModalFolder/Register";
 
 function App() {
   const [setName, setSetName] = useState(" ");
@@ -17,7 +18,7 @@ function App() {
     colours: WUBRG,
     filters: new Set(),
   });
-  const [fadeIn, setFadeIn] = useState(0);
+  // const [fadeIn, setFadeIn] = useState(0);
 
   const mainArr = Array.from(colourState.filters);
   const colourUrl = mainArr.toString().replaceAll(",", "");
@@ -64,11 +65,7 @@ function App() {
     <div className="appWrap">
       <div className="app">
         <h1>
-          <img
-            src={logo}
-            alt="Magic the Gathering Logo"
-            width="400"
-          />
+          <img src={logo} alt="Magic the Gathering Logo" width="400" />
         </h1>
         <SetSelector
           setName={setName}
@@ -79,8 +76,11 @@ function App() {
           colourState={colourState}
           setColourState={setColourState}
         />
+        <Register modalButtonText={"Click the button"} compareCards={compareCards}/>
+
         <div className="buttonWrapper">
-          <button
+        {/* BUTTON WITH FADE IN TEMP DISABLED */}
+          {/* <button
             className="mainButton image"
             onClick={() => {
               fetchData();
@@ -90,15 +90,12 @@ function App() {
             fadeIn={fadeIn}
           >
             New Card
-          </button>
+          </button> */}
           <Button
             className="image"
             onClick={() => {
               fetchData();
-              setFadeIn(1);
             }}
-            onAnimationEnd={() => setFadeIn(0)}
-            fadeIn={fadeIn}
             text={"NEW CARD"}
           />
 

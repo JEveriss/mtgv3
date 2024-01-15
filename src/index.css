@@ -10,17 +10,17 @@
 }
 
 body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  -ms-overflow-style: none; /* for Internet Explorer, Edge */
-  scrollbar-width: none; /* for Firefox */
-  overflow-y: scroll;
-  margin: 0;
-  font-family: "Petrona", serif;
-  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
   background-color: #eff1ff;
+  font-family: "Petrona", serif;
   font-size: 1.2rem;
+  line-height: 1.5;
+  margin: 0;
+  overflow-y: scroll;
+  scrollbar-width: none; /* for Firefox */
 }
 
 img,
@@ -81,25 +81,25 @@ code {
   --primary-black: #131200;
 }
 .mainButton {
-  padding: 0.2rem 1rem;
+  background-color: var(--accent-light);
   border-radius: 45px;
   border: var(--primary-black) 2px solid;
-  background-color: var(--accent-light);
   cursor: pointer;
-  transition: all 0.2s ease-in;
   height: 3rem;
+  padding: 0.2rem 1rem;
+  transition: all 0.2s ease-in;
 }
 .mainButton:hover {
-  color: var(--accent-light);
   background-color: var(--accent-dark);
+  color: var(--accent-light);
   transition: all 0.2s ease-in;
 }
 .mainButton:active {
   transform: scale(0.95);
 }
 .currentSet {
-  margin: 1rem 0;
   font-size: 1.4rem;
+  margin: 1rem 0;
 }
 
 @media only screen and (max-width: 850px) {

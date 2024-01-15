@@ -12,21 +12,10 @@ export const StyledButton = styled.button`
   :hover {
     color: var(--accent-light);
     background-color: var(--accent-dark);
-    transition: all 0.2s ease-in;
+    transition: all 0.1s ease-in;
   }
   :active {
     transform: scale(0.95);
   }
-  .image[fadeIn="1"] {
-    animation: fadeIn 1s 1;
-  }
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
 `;

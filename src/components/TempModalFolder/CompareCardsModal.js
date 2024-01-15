@@ -1,22 +1,26 @@
 import React from "react";
-import Button from "../../Button";
-import { CompareCardModal } from "./CompareCardModal.style";
+import Modal from "./Modal";
 
-function CompareCards({ compareCards, onClose, show, toggle }) {
-  function newManaCost(item) {
-    return item.replaceAll("{", "").replaceAll("}", "");
-  }
-
+const CompareCardsModal = ({
+  openCompareCardsModal,
+  setOpenCompareCardsModal,
+  compareCards,
+}) => {
+  console.log("compareCards: ", compareCards);
   return (
-    <CompareCardModal onClose={onClose}>
-      <div
-        onClick={(e) => e.stopPropagation()}
-        className={`modalContainer ${show ? "show" : null} `}
-      >
-        <Button onClick={() => toggle()} text={"Close"} />
-        
+    <div onClick={() => setOpenCompareCardsModal(false)}>
+      <Modal open={openCompareCardsModal}>
+        <div>
+          <button
+            className="mainButton"
+            onClick={() => setOpenCompareCardsModal(false)}
+          >
+            xxx
+          </button>
+        </div>
 
-          {compareCards.map((item) => {
+        <div>
+          {compareCards?.map((item) => {
             return (
               <div className="compareCardWrapper">
                 <h2>{item.name}</h2>
@@ -24,7 +28,7 @@ function CompareCards({ compareCards, onClose, show, toggle }) {
                   <img alt={item?.name} src={item?.image} />
                 </div>
                 <ul>
-                  <li>MANA VALUE: {newManaCost(item?.mana_cost)}</li>
+                  {/* <li>MANA VALUE: {newManaCost(item?.mana_cost)}</li> */}
                   <li>TYPE: {item?.type_line}</li>
                   <li>RARITY: {item?.rarity}</li>
                   {item?.eur ? <li>EUR: {`€${item?.eur}`}</li> : null}
@@ -36,10 +40,10 @@ function CompareCards({ compareCards, onClose, show, toggle }) {
               </div>
             );
           })}
-
-      </div>
-    </CompareCardModal>
+        </div>
+      </Modal>
+    </div>
   );
-}
+};
 
-export default CompareCards;
+export default CompareCardsModal;
