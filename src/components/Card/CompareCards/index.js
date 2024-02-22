@@ -22,7 +22,7 @@ function CompareCards({ cardData }) {
   function newManaCost(item) {
     return item.replaceAll("{", "").replaceAll("}", "");
   }
-  console.log("COMPARTE CARDS", compareCards);
+
   return (
     <CompareCardModal>
       <button className="mainButton" onClick={addCard}>

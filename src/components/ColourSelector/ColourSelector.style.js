@@ -66,17 +66,6 @@ export const SetColourWrapper = styled.ul`
     box-shadow: 0px 0px 12px 8px var(--colorless);
   }
 
-  /* 
-  .checkboxIcon-* {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    height: 3rem;
-    width: 3rem;
-    background-color: var(--*);
-    box-shadow: 0px 0px 10px 2px var(--*)
-  } */
   @media only screen and (max-width: 850px) {
     img {
       height: 2.5rem;

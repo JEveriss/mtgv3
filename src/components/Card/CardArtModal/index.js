@@ -3,7 +3,6 @@ import { Modal } from "./CardArtModal.style";
 import { cardArtStatus } from "../../../mixpanel";
 
 function CardArtModal(props) {
-  console.log(props);
   if (
     !props.activeImage ||
     props?.modalCard.image_uris.art_crop !== props.activeImage
