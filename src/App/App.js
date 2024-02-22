@@ -7,7 +7,7 @@ import { WUBRG } from "../data/Data";
 import logo from "../assets/MTGLogo1.png";
 import NewCard from "../components/Card/NewCard";
 import "../components/Card/tempstyle.css";
-import CompareCards from "../components/Card/CompareCards";
+// import CompareCards from "../components/Card/CompareCards";
 
 function App() {
   const [setName, setSetName] = useState(" ");
@@ -42,8 +42,7 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-console.log("CARD IDENTITY", cardContext?.color_identity)
-
+  console.log("CARD IDENTITY", cardContext?.color_identity);
 
   return (
     <div className="appWrap">
@@ -71,7 +70,7 @@ console.log("CARD IDENTITY", cardContext?.color_identity)
             New Card
           </button>
           {/* <button onClick={()} className="mainButton">Save Card</button> */}
-          <CompareCards cardData={cardContext} />
+          {/* <CompareCards cardData={cardContext} /> */}
         </div>
         {cardContext ? <NewCard cardData={cardContext} /> : <LoadingSpinner />}
       </div>

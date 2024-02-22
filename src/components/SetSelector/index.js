@@ -9,6 +9,8 @@ function SetSelector({ setName, setSetName, cardContext }) {
     <>
       <p className="currentSet">
         Current set is: <b>{cardContext?.set_name}</b>
+        <br/>
+        Select a set:
       </p>
       <SetSelectorWrapper>
         {setList?.map((set) => {

@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const SetSelectorWrapper = styled.ul`
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  padding: 1rem;
   font-size: 1.4rem;
   label {
     text-transform: uppercase;
@@ -14,9 +14,10 @@ export const SetSelectorWrapper = styled.ul`
   }
 
   li {
+    margin: auto;
     display: flex;
     flex-direction: row;
-    margin: 0 0.5rem;
+
     line-height: 1;
   }
 
