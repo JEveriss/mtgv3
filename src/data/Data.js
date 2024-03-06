@@ -66,6 +66,13 @@ export const setList = [
 
 export const compareCards = [];
 
+export const fblthpData = [
+  {id: 1, link: "https://cards.scryfall.io/art_crop/front/c/3/c36f01a5-82bf-4fc6-9396-4410067c351b.jpg?1702429424"},
+  {id: 2, link: "https://cards.scryfall.io/art_crop/front/7/9/79b2c547-0d9e-4fd7-a399-347ad908c70b.jpg?1702429390"},
+  {id: 3, link: "https://cards.scryfall.io/art_crop/front/0/1/01d3e6ea-4791-4948-af22-c1bd04c34c1e.jpg?1708702980"},
+  {id: 4, link: "https://cards.scryfall.io/art_crop/front/4/5/450c264f-008b-4360-b0ee-f0448ca8fedc.jpg?1673913700"}
+]
+
 // {name:  
 // manacost:
 // type:
