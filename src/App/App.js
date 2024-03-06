@@ -7,9 +7,9 @@ import { WUBRG } from "../data/Data";
 import logo from "../assets/MTGLogo1.png";
 import NewCard from "../components/Card/NewCard";
 import "../components/Card/tempstyle.css";
-import CompareCards from "../components/Card/CompareCards";
+// import CompareCards from "../components/Card/XXX - CompareCards";
 import Button from "../components/Button";
-import { Register } from "../components/TempModalFolder/Register";
+import { CompareCards } from "../components/TempModalFolder/CompareCards";
 
 function App() {
   const [setName, setSetName] = useState(" ");
@@ -42,8 +42,8 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const [openModal, setOpenModal] = useState(false);
-  const Toggle = () => setOpenModal(!openModal);
+  // const [openModal, setOpenModal] = useState(false);
+  // const Toggle = () => setOpenModal(!openModal);
 
   const [compareCards, setCompareCards] = useState([]);
   function addCard() {
@@ -61,6 +61,10 @@ function App() {
     setCompareCards([...compareCards, newCard]);
   }
 
+  function handleRemove(x) {
+    console.log(x);
+  }
+
   return (
     <div className="appWrap">
       <div className="app">
@@ -76,10 +80,9 @@ function App() {
           colourState={colourState}
           setColourState={setColourState}
         />
-        <Register modalButtonText={"Click the button"} compareCards={compareCards}/>
 
         <div className="buttonWrapper">
-        {/* BUTTON WITH FADE IN TEMP DISABLED */}
+          {/* BUTTON WITH FADE IN TEMP DISABLED */}
           {/* <button
             className="mainButton image"
             onClick={() => {
@@ -96,17 +99,18 @@ function App() {
             onClick={() => {
               fetchData();
             }}
-            text={"NEW CARD"}
+            text={"New Card"}
           />
-
           <Button onClick={addCard} text={"Save Card"} />
-          <Button onClick={Toggle} text={"Open Modal"} />
 
+          <Button
+            onClick={() => handleRemove(compareCards)}
+            text={"Clear Cards"}
+          />
           <CompareCards
+            modalButtonText={"View Saved Cards"}
             compareCards={compareCards}
-            addCard={addCard}
-            show={openModal}
-            toggle={Toggle}
+            setCompareCards={setCompareCards}
           />
         </div>
         {cardContext ? <NewCard cardData={cardContext} /> : <LoadingSpinner />}

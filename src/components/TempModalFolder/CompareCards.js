@@ -1,8 +1,22 @@
 import React, { useState } from "react";
 import CompareCardsModal from "./CompareCardsModal";
+import { fblthpData } from "../../data/Data";
 
-export function Register({ modalButtonText, compareCards }) {
+export function CompareCards({
+  modalButtonText,
+  compareCards,
+  setCompareCards,
+}) {
   const [openCompareCardsModal, setOpenCompareCardsModal] = useState(false);
+
+  const [count, setCount] = useState(0);
+  const data = fblthpData;
+  console.log(count);
+
+  function twoClick() {
+    setOpenCompareCardsModal(true);
+    setCount(data[Math.floor(Math.random() * data.length)]);
+  }
 
   return (
     <div>
@@ -12,12 +26,11 @@ export function Register({ modalButtonText, compareCards }) {
           openCompareCardsModal={openCompareCardsModal}
           setOpenCompareCardsModal={() => setOpenCompareCardsModal(false)}
           compareCards={compareCards}
+          setCompareCards={setCompareCards}
+          count={count}
         />
       )}
-      <button
-        onClick={() => setOpenCompareCardsModal(true)}
-        className="mainButton"
-      >
+      <button onClick={twoClick} className="mainButton">
         {modalButtonText}
       </button>
     </div>

@@ -9,6 +9,10 @@
   padding: 0;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
   -moz-osx-font-smoothing: grayscale;
   -ms-overflow-style: none; /* for Internet Explorer, Edge */
@@ -16,13 +20,15 @@ body {
   -webkit-font-smoothing: antialiased;
   background-color: #eff1ff;
   font-family: "Petrona", serif;
-  font-size: 1.2rem;
   line-height: 1.5;
+  font-size: 2rem;
   margin: 0;
   overflow-y: scroll;
   scrollbar-width: none; /* for Firefox */
 }
-
+p {
+  font-size: 2rem;
+}
 img,
 picture,
 video,
@@ -68,7 +74,7 @@ code {
   --w: #ffffff;
   --blue: #aae0fa;
   --u: #22b5ff;
-  --black: #cbc2bf;
+  --black: #8d7f8d;
   --b: #1a1a1a;
   --red: #f9aa8f;
   --r: #c20d00;
@@ -85,7 +91,7 @@ code {
   border-radius: 45px;
   border: var(--primary-black) 2px solid;
   cursor: pointer;
-  height: 3rem;
+  font-size: 2rem;
   padding: 0.2rem 1rem;
   transition: all 0.2s ease-in;
 }
@@ -98,7 +104,6 @@ code {
   transform: scale(0.95);
 }
 .currentSet {
-  font-size: 1.4rem;
   margin: 1rem 0;
 }
 
@@ -107,4 +112,3 @@ code {
     margin: auto;
   }
 }
-

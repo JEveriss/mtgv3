@@ -28,8 +28,11 @@
 .buttonWrapper {
   display: flex;
 }
+.buttonWrapper > button {
+  margin-right: 1rem;
+}
 
-.tempModalDiv{
+.tempModalDiv {
   background-color: antiquewhite;
   height: 200px;
   width: 200px;
