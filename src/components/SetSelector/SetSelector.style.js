@@ -1,23 +1,67 @@
 import styled from "styled-components";
 
 export const SetSelectorWrapper = styled.ul`
-    display: grid;
-    justify-content: space-evenly;
-    grid-template-columns: auto auto auto auto auto;
-    row-gap: 1rem;
+  display: grid;
+  justify-content: space-evenly;
+  grid-template-columns: auto auto auto auto auto;
+  row-gap: 1rem;
+  cursor: pointer;
+
   label {
     text-transform: uppercase;
+    cursor: pointer;
   }
 
-  /* input {
-    margin-right: 0.2rem;
-  } */
+  li input {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .checkmark {
+    display: flex;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  li:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+
+  li input:checked ~ .checkmark {
+    background-color: var(--accent-light);
+  }
+
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  li input:checked ~ .checkmark:after {
+    display: flex;
+  }
+
+  li .checkmark:after {
+    content: "X";
+    transform: ${(props) => (props.degree ? 'rotate'(props.degree) : '100deg')};
+    /* cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')}; */
+    /* width: ${(props) => (props.degree ? props.degree : 100)}; */
+    font-size: 33px;
+  }
 
   li {
     display: flex;
-    flex-direction: column-reverse;
-    text-align: center;
-    line-height: 1;
+    flex-direction: column;
+    /* cursor: pointer; */
+    align-items: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 
   p {
@@ -25,68 +69,13 @@ export const SetSelectorWrapper = styled.ul`
   }
 `;
 
-// /* The container */
 // .container {
-//   display: block;
-//   position: relative;
-//   padding-left: 35px;
-//   margin-bottom: 12px;
-//   cursor: pointer;
-//   font-size: 22px;
-// width: fit-content;
-// block-size: fit-content;
-
-//   -webkit-user-select: none;
-//   -moz-user-select: none;
-//   -ms-user-select: none;
-//   user-select: none;
-// }
-
-// /* Hide the browser's default radio button */
-// .container input {
-//   position: absolute;
-//   opacity: 0;
-//   cursor: pointer;
-// }
-
-// /* Create a custom radio button */
-// .checkmark {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   height: 25px;
-//   width: 25px;
-//   background-color: #eee;
-//   border-radius: 50%;
-// }
-
-// /* On mouse-over, add a grey background color */
-// .container:hover input ~ .checkmark {
-//   background-color: #ccc;
-// }
-
-// /* When the radio button is checked, add a blue background */
-// .container input:checked ~ .checkmark {
-//   background-color: crimson;
-// }
-
-// /* Create the indicator (the dot/circle - hidden when not checked) */
-// .checkmark:after {
-// font-family: helvetica;
-//   content: "X";
-// width:100%;
-//   display: none;
-//   margin: 0 auto;
-//   text-align:center;
-
-// }
-
-// /* Show the indicator (dot/circle) when checked */
-// .container input:checked ~ .checkmark:after {
-//   display: block;
-// }
-
-// /* Style the indicator (dot/circle) */
-// .container .checkmark:after {
-//  	top: 9px;
+// display: flex;
+// flex-direction:column;
+// cursor: pointer;
+// align-items:center;
+// -webkit-user-select: none;
+// -moz-user-select: none;
+// -ms-user-select: none;
+// user-select: none;
 // }

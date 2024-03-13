@@ -3,8 +3,8 @@ import { FormatLegalities } from './CardLegalities.style'
 import { Chevron } from "../../../../assets/Chevron";
 
 function CardLegalities({ cardLegalities }) {
-  const legalObject = Object.entries(cardLegalities);
-  const legalVals = Object.values(cardLegalities);
+  const legalObject = Object?.entries(cardLegalities);
+  const legalVals = Object?.values(cardLegalities);
 
   legalVals.map((item) => {
     return item.toUpperCase();
@@ -29,10 +29,10 @@ function CardLegalities({ cardLegalities }) {
           Legal <Chevron />
         </summary>
         <ul>
-          {legalArr.map((item, i) => {
+          {legalArr?.map((item, i) => {
             return (
               <li key={i}>
-                {item[0][0].toUpperCase() + item[0].substring(1).toLowerCase()}{" "}
+                {item[0][0]?.toUpperCase() + item[0]?.substring(1)?.toLowerCase()}{" "}
               </li>
             );
           })}
@@ -43,10 +43,10 @@ function CardLegalities({ cardLegalities }) {
           Not-Legal <Chevron />
         </summary>
         <ul>
-          {nonLegalArr.map((item, i) => {
+          {nonLegalArr?.map((item, i) => {
             return (
               <li key={i}>
-                {item[0][0].toUpperCase() + item[0].substring(1).toLowerCase()}{" "}
+                {item[0][0]?.toUpperCase() + item[0]?.substring(1)?.toLowerCase()}{" "}
               </li>
             );
           })}

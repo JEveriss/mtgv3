@@ -14,8 +14,6 @@ const CompareCardsModal = ({
   setCompareCards,
   count
 }) => {
-  console.log("compareCards: ", compareCards);
-
 
   function RemoveDash(x) {
     return x.includes("—") ? x.split("—")[0] : x;

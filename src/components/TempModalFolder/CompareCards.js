@@ -11,7 +11,6 @@ export function CompareCards({
 
   const [count, setCount] = useState(0);
   const data = fblthpData;
-  console.log(count);
 
   function twoClick() {
     setOpenCompareCardsModal(true);

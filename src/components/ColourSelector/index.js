@@ -42,6 +42,7 @@ export default function ColourSelector({ colourState, setColourState }) {
   }
   return (
     <>
+        Select colour filter(s):
       <SetColourWrapper>
         {WUBRG.map(({ id, category, colour, image }) => (
           <li key={id} onClick={() => colourSelected(colour)}>
