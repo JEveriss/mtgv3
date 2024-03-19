@@ -2,23 +2,66 @@ import styled from "styled-components";
 
 export const SetSelectorWrapper = styled.ul`
   display: grid;
-  grid-template-columns: repeat(5, auto);
-  padding: 1rem;
-  font-size: 1.4rem;
+  justify-content: space-evenly;
+  grid-template-columns: auto auto auto auto auto;
+  row-gap: 1rem;
+  cursor: pointer;
+
   label {
     text-transform: uppercase;
+    cursor: pointer;
   }
 
-  input {
-    margin-right: 0.2rem;
+  li input {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .checkmark {
+    display: flex;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  li:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+
+  li input:checked ~ .checkmark {
+    background-color: var(--accent-light);
+  }
+
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  li input:checked ~ .checkmark:after {
+    display: flex;
+  }
+
+  li .checkmark:after {
+    content: "X";
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    font-size: 33px;
+
   }
 
   li {
     margin: auto;
     display: flex;
-    flex-direction: row;
-
-    line-height: 1;
+    flex-direction: column;
+    align-items: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 
   p {

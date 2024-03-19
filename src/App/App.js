@@ -7,26 +7,23 @@ import { WUBRG } from "../data/Data";
 import logo from "../assets/MTGLogo1.png";
 import NewCard from "../components/Card/NewCard";
 import "../components/Card/tempstyle.css";
-// import CompareCards from "../components/Card/CompareCards";
+import Button from "../components/Button";
+import { CompareCards } from "../components/TempModalFolder/CompareCards";
 
 function App() {
-  const [setName, setSetName] = useState(" ");
+  const [setName, setSetName] = useState("");
   const [cardContext, setCardContext] = useState();
   const [colourState, setColourState] = useState({
     colours: WUBRG,
     filters: new Set(),
   });
-  const [fadeIn, setFadeIn] = useState(0);
 
   const mainArr = Array.from(colourState.filters);
-  const colourUrl = mainArr.toString().replaceAll(",", "");
-
-  const connectorString = `c%3A${colourUrl}`;
 
   const fetchData = async () => {
     try {
       const res = await fetch(
-        `https://api.scryfall.com/cards/random?q=${connectorString}+set%3A${setName}`
+        `https://api.scryfall.com/cards/random?q=c%3A${mainArr}+e%3A${setName}`
       );
       const fetchedData = await res.json();
       setCardContext(fetchedData);
@@ -40,12 +37,35 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log("CARD IDENTITY", cardContext?.color_identity);
+  // const [openModal, setOpenModal] = useState(false);
+  // const Toggle = () => setOpenModal(!openModal);
 
+  const [compareCards, setCompareCards] = useState([]);
+  function addCard() {
+    const newCard = {
+      name: cardContext.name,
+      artist: cardContext.artist,
+      mana_cost: cardContext.mana_cost,
+      type_line: cardContext.type_line,
+      eur: cardContext.prices.eur,
+      power: cardContext.power,
+      toughness: cardContext.toughness,
+      rarity: cardContext.rarity,
+      image: cardContext.image_uris.normal,
+    };
+    setCompareCards([...compareCards, newCard]);
+  }
+
+  function handleRemove(x) {
+    return (x.length = 0);
+  }
+  // console.log(cardContext?.layout === "transform");
   return (
     <div className="appWrap">
       <div className="app">
-        <img src={logo} alt="logo" width="400" />
+        <h1>
+          <img src={logo} alt="Magic the Gathering Logo" width="400" />
+        </h1>
         <SetSelector
           setName={setName}
           setSetName={setSetName}
@@ -55,22 +75,32 @@ function App() {
           colourState={colourState}
           setColourState={setColourState}
         />
+
         <div className="buttonWrapper">
-          <button
-            className="mainButton image"
+
+          <Button
+            className="image"
             onClick={() => {
               fetchData();
-              setFadeIn(1);
             }}
-            onAnimationEnd={() => setFadeIn(0)}
-            fadeIn={fadeIn}
-          >
-            New Card
-          </button>
+            text={"New Card"}
+          />
+          <Button
+            onClick={addCard}
+            text={"Save Card"}
+            disabled={cardContext?.layout === "transform"}
 
-          {/* <button onClick={()} className="mainButton">Save Card</button> */}
-          {/* <CompareCards cardData={cardContext} /> */}
+          />
 
+          <Button
+            onClick={() => handleRemove(compareCards)}
+            text={"Clear Cards"}
+          />
+          <CompareCards
+            modalButtonText={"View Saved Cards"}
+            compareCards={compareCards}
+            setCompareCards={setCompareCards}
+          />
         </div>
         {cardContext ? <NewCard cardData={cardContext} /> : <LoadingSpinner />}
       </div>

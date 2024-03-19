@@ -7,33 +7,26 @@ export const Modal = styled.div`
   right: 0;
   bottom: 0;
   background-color: #00000096;
-  display: flex;
+  display: grid;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
   z-index: 50;
 
-  img {
+  .saga {
+    background-color: #fff;
+    border: 2px solid var(--primary-black);
+    /* height: 100%; */
+  }
+  .modalcontent {
+    background-color: #fff;
+    border: 2px solid var(--primary-black);
     width: 100%;
   }
-
-  .saga {
-    width: 32vh;
-    background-color: #fff;
-    border: 2px solid #000;
-  }
-
-  .modalcontent {
-    width: 100vh;
-    background-color: #fff;
-    border: 2px solid #000;
-  }
-
   .modalheader {
     display: flex;
     justify-content: space-between;
     padding: 0.8rem;
-    border-bottom: 2px #000 solid;
+    border-bottom: 2px var(--primary-black) solid;
     align-items: center;
   }
   .modaltitle {

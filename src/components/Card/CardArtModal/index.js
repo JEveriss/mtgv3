@@ -1,6 +1,7 @@
 import React from "react";
 import { Modal } from "./CardArtModal.style";
 import { cardArtStatus } from "../../../mixpanel";
+import LoadingSpinner from "../../Spinner";
 
 function CardArtModal(props) {
   if (
@@ -35,10 +36,18 @@ function CardArtModal(props) {
           </button>
         </span>
 
-        <img
-          src={props?.modalCard.image_uris.art_crop}
-          alt={props?.modalCard?.name}
-        />
+          {props?.modalCard?.image_uris?.art_crop && props?.modalCard?.name ? (
+            <img
+              src={props?.modalCard?.image_uris?.art_crop}
+              alt={props?.modalCard?.name}
+              // width="500"
+              // height="500"
+              loading="lazy"
+            />
+          ) : (
+            <LoadingSpinner />
+          )}
+
       </div>
     </Modal>
   );

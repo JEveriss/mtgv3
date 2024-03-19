@@ -1,13 +1,11 @@
 import React from "react";
-import cardBack from "../../assets/CardBack.webp";
+
 import "./Testing.css";
 
-function Testing() {
+function Testing({ children }) {
   return (
     <div className="cardBody">
-      <div className="card">
-        <img src={cardBack} alt="cardBack"></img>
-      </div>
+      <div className="card">{children}</div>
     </div>
   );
 }

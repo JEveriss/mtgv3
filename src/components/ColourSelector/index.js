@@ -39,23 +39,21 @@ export default function ColourSelector({ colourState, setColourState }) {
     if (mainArr.includes(j)) {
       return true;
     }
-  };
+  }
   return (
     <>
-      <p className="currentSet">Select colour(s):</p>
+        <h3> Select colour filter(s):</h3>
       <SetColourWrapper>
         {WUBRG.map(({ id, category, colour, image }) => (
           <li key={id} onClick={() => colourSelected(colour)}>
             <label
-              className={
-                stylingFunc(category)
-                  ? `checkboxIcon-${category} colourIcon`
-                  : "greyedOut colourIcon"
-              }
+              className={`${
+                stylingFunc(category) ? `checkboxIcon-${category}` : "greyedOut"
+              } colourIcon`}
             >
               <input
                 onChange={handleFilterChange}
-                type='checkbox'
+                type="checkbox"
                 value={category}
               />
               <img src={image} alt={colour} />
