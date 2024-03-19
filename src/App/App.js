@@ -7,28 +7,23 @@ import { WUBRG } from "../data/Data";
 import logo from "../assets/MTGLogo1.png";
 import NewCard from "../components/Card/NewCard";
 import "../components/Card/tempstyle.css";
-// import CompareCards from "../components/Card/XXX - CompareCards";
 import Button from "../components/Button";
 import { CompareCards } from "../components/TempModalFolder/CompareCards";
 
 function App() {
-  const [setName, setSetName] = useState(" ");
+  const [setName, setSetName] = useState("");
   const [cardContext, setCardContext] = useState();
   const [colourState, setColourState] = useState({
     colours: WUBRG,
     filters: new Set(),
   });
-  // const [fadeIn, setFadeIn] = useState(0);
 
   const mainArr = Array.from(colourState.filters);
-  const colourUrl = mainArr.toString().replaceAll(",", "");
-
-  const connectorString = `c%3A${colourUrl}`;
 
   const fetchData = async () => {
     try {
       const res = await fetch(
-        `https://api.scryfall.com/cards/random?q=${connectorString}+set%3A${setName}`
+        `https://api.scryfall.com/cards/random?q=c%3A${mainArr}+e%3A${setName}`
       );
       const fetchedData = await res.json();
       setCardContext(fetchedData);
@@ -62,9 +57,9 @@ function App() {
   }
 
   function handleRemove(x) {
-    console.log(x);
+    return (x.length = 0);
   }
-
+  // console.log(cardContext?.layout === "transform");
   return (
     <div className="appWrap">
       <div className="app">
@@ -82,18 +77,7 @@ function App() {
         />
 
         <div className="buttonWrapper">
-          {/* BUTTON WITH FADE IN TEMP DISABLED */}
-          {/* <button
-            className="mainButton image"
-            onClick={() => {
-              fetchData();
-              setFadeIn(1);
-            }}
-            onAnimationEnd={() => setFadeIn(0)}
-            fadeIn={fadeIn}
-          >
-            New Card
-          </button> */}
+
           <Button
             className="image"
             onClick={() => {
@@ -101,7 +85,12 @@ function App() {
             }}
             text={"New Card"}
           />
-          <Button onClick={addCard} text={"Save Card"} />
+          <Button
+            onClick={addCard}
+            text={"Save Card"}
+            disabled={cardContext?.layout === "transform"}
+
+          />
 
           <Button
             onClick={() => handleRemove(compareCards)}

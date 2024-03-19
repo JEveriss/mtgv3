@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const CompareCardsWrapper = styled.div`
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat(3, auto);
   /* justify-content: space-between; */
   margin: 0 1rem;
 `;
@@ -22,5 +22,9 @@ export const CompareCardsCard = styled.div`
   }
   img {
     border-radius: 12px;
+  }
+  ul {
+    padding-top: 0.5rem;
+    line-height: 1.2;
   }
 `;

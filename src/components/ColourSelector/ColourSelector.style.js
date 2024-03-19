@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const SetColourWrapper = styled.ul`
   display: flex;
-  min-height: 10rem;
-
+  min-height: 8rem;
+  padding-bottom: 1.4rem;
   li {
     margin: 0 auto;
     display: flex;
@@ -68,7 +68,7 @@ export const SetColourWrapper = styled.ul`
 
   @media only screen and (max-width: 850px) {
     img {
-      height: 2.5rem;
+      height: 4.5rem;
     }
   }
 `;
