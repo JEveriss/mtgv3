@@ -17,4 +17,12 @@ export const StyledButton = styled.button`
   :active {
     transform: scale(0.95);
   }
+  :disabled,
+  [disabled] {
+    :hover {
+      background-color: var(--accent-light);
+      cursor: default;
+      color: #1010104D;
+    }
+  }
 `;

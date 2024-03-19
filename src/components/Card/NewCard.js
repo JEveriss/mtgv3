@@ -10,7 +10,9 @@ import Button from "../Button";
 
 function NewCard({ cardData }) {
   const [activeImage, setActiveImage] = useState(null);
-  console.log("cardData", cardData);
+
+  // console.log(cardData);
+
   return (
     <NewCardWrapper>
       {cardData?.card_faces && !cardData.image_uris ? (
@@ -55,14 +57,14 @@ function NewCard({ cardData }) {
           <div className="cardTitle">
             <div>
               <h3>{cardData.type_line}</h3>
-              <button
-                className="mainButton"
+              <Button
+                text={"Enlarge Art"}
                 onClick={() => {
                   setActiveImage(cardData.image_uris.art_crop);
                 }}
               >
                 Enlarge Art
-              </button>
+              </Button>
               <CardArtModal
                 modalCard={cardData}
                 onClose={() => setActiveImage(null)}

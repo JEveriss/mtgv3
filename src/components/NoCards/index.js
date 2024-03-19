@@ -3,8 +3,6 @@ import { fblthpData } from "../../data/Data";
 import { NoCardWrapper } from "./NoCards.style";
 let data = fblthpData;
 
-console.log("No Card Data: ", data);
-
 function NoCard({ count }) {
   return (
     <NoCardWrapper>
