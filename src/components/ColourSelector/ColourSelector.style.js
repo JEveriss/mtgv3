@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const SetColourWrapper = styled.ul`
   display: flex;
-  min-height: 10rem;
-
+  min-height: 8rem;
+  padding-bottom: 1.4rem;
   li {
     margin: 0 auto;
     display: flex;
@@ -66,20 +66,9 @@ export const SetColourWrapper = styled.ul`
     box-shadow: 0px 0px 10px 10px var(--colorless);
   }
 
-  /* 
-  .checkboxIcon-* {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    height: 3rem;
-    width: 3rem;
-    background-color: var(--*);
-    box-shadow: 0px 0px 10px 2px var(--*)
-  } */
   @media only screen and (max-width: 850px) {
     img {
-      height: 2.5rem;
+      height: 4.5rem;
     }
   }
 `;

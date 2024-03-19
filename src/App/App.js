@@ -17,7 +17,6 @@ function App() {
     colours: WUBRG,
     filters: new Set(),
   });
-  // const [fadeIn, setFadeIn] = useState(0);
 
   const mainArr = Array.from(colourState.filters);
 
@@ -28,7 +27,6 @@ function App() {
       );
       const fetchedData = await res.json();
       setCardContext(fetchedData);
-      console.log("response: ", res.url);
     } catch (err) {
       console.log(err);
     }
@@ -61,7 +59,7 @@ function App() {
   function handleRemove(x) {
     return (x.length = 0);
   }
-  console.log(cardContext?.layout === "transform");
+  // console.log(cardContext?.layout === "transform");
   return (
     <div className="appWrap">
       <div className="app">
@@ -79,18 +77,7 @@ function App() {
         />
 
         <div className="buttonWrapper">
-          {/* BUTTON WITH FADE IN TEMP DISABLED */}
-          {/* <button
-            className="mainButton image"
-            onClick={() => {
-              fetchData();
-              setFadeIn(1);
-            }}
-            onAnimationEnd={() => setFadeIn(0)}
-            fadeIn={fadeIn}
-          >
-            New Card
-          </button> */}
+
           <Button
             className="image"
             onClick={() => {

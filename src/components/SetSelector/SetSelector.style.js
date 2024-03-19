@@ -47,16 +47,15 @@ export const SetSelectorWrapper = styled.ul`
 
   li .checkmark:after {
     content: "X";
-    transform: ${(props) => (props.degree ? 'rotate'(props.degree) : '100deg')};
-    /* cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')}; */
-    /* width: ${(props) => (props.degree ? props.degree : 100)}; */
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
     font-size: 33px;
+
   }
 
   li {
     display: flex;
     flex-direction: column;
-    /* cursor: pointer; */
     align-items: center;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -68,14 +67,3 @@ export const SetSelectorWrapper = styled.ul`
     margin: 1rem 0;
   }
 `;
-
-// .container {
-// display: flex;
-// flex-direction:column;
-// cursor: pointer;
-// align-items:center;
-// -webkit-user-select: none;
-// -moz-user-select: none;
-// -ms-user-select: none;
-// user-select: none;
-// }

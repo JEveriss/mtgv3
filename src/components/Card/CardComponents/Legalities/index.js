@@ -23,7 +23,7 @@ function CardLegalities({ cardLegalities }) {
 
   return (
     <FormatLegalities>
-      Format Legalities:
+      <h3>Format Legalities</h3>
       <details>
         <summary>
           Legal <Chevron />

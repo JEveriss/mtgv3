@@ -11,7 +11,7 @@ import Button from "../Button";
 function NewCard({ cardData }) {
   const [activeImage, setActiveImage] = useState(null);
 
-  console.log(cardData);
+  // console.log(cardData);
 
   return (
     <NewCardWrapper>
